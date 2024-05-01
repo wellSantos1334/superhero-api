@@ -163,4 +163,24 @@ UsersRouter.put(
   */
 );
 
+UsersRouter.delete(
+  '/:id',
+  usersController.delete,
+  /*  
+    #swagger.tags = ['Users']
+    #swagger.summary = 'Deleta um User pelo ID'
+    #swagger.parameters['id'] = {
+      in: 'path',
+      type: 'string',
+      description: 'ID do usuário',
+      required: true
+    }
+    #swagger.responses[200] = {
+      schema: {
+        message: "User deleted successfully"
+      }
+    }
+  */
+);
+
 export { UsersRouter };

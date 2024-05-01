@@ -6,6 +6,7 @@ import { FindByIdUserService } from '../../../services/FindByIdUserService';
 import { GetAllUserService } from '../../../services/GetAllUserService';
 import { UpdateUserDTO } from '../../../dtos/UpdateUserDTO';
 import { UpdateUserService } from '../../../services/UpdateUserService';
+import { DeleteUserService } from '../../../services/DeleteUserService';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -54,5 +55,15 @@ export class UsersController {
     await updateUserService.execute(requestValidated.getAll(), profilePhoto);
 
     return response.status(200).json('User updated successfully');
+  }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const deleteUserService = container.resolve(DeleteUserService);
+
+    await deleteUserService.execute(id);
+
+    return response.status(200).json('User deleted successfully');
   }
 }

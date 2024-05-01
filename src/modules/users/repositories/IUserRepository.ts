@@ -24,6 +24,7 @@ interface IUserRepository {
   updatePassword(data: UserUpdatePasswordInput): Promise<void>;
   update(data: UserUpdateInput): Promise<void>;
   userLogin(email: string): Promise<User | null>;
+  delete(id: string): Promise<void>;
 }
 
 export { IUserRepository };

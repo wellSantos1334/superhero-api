@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { CreateUserService } from '../../../services/CreateUserService';
 import { CreateUserDTO } from '../../../dtos/CreateUserDTO';
 import { FindByIdUserService } from '../../../services/FindByIdUserService';
+import { GetAllUserService } from '../../../services/GetAllUserService';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -29,5 +30,13 @@ export class UsersController {
     const user = await findByIdUserService.execute(id);
 
     return response.status(200).json(user);
+  }
+
+  async getAll(request: Request, response: Response) {
+    const getAllUserService = container.resolve(GetAllUserService);
+
+    const users = await getAllUserService.execute();
+
+    return response.status(200).json(users);
   }
 }

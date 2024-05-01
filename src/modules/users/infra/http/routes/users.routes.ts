@@ -70,12 +70,33 @@ UsersRouter.get(
   /*  
     #swagger.tags = ['Users']
     #swagger.summary = 'Busca um User pelo ID'
-    #swagger.parameters['name'] = {
+    #swagger.parameters['id'] = {
       in: 'path',
       type: 'string',
       description: 'ID do usuário',
       required: true
     }
+    #swagger.responses[200] = {
+      schema: {
+        "cpf": "12220030040",
+        "name": "Wellington",
+        "email": "welll@teste.com",
+        "profilePhoto": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png",
+        "biography": "Biografia",
+        "id": "c8a52a75-2599-4bc2-b700-83c80af968f3",
+        "updatedAt": "2024-05-01T19:49:04.025Z",
+        "createdAt": "2024-05-01T19:49:04.025Z"
+      }
+    }
+  */
+);
+
+UsersRouter.get(
+  '/',
+  usersController.getAll,
+  /*  
+    #swagger.tags = ['Users']
+    #swagger.summary = 'Busca todos os User'
     #swagger.responses[200] = {
       schema: {
         "cpf": "12220030040",

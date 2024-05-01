@@ -14,6 +14,7 @@ interface IUserRepository {
   findById(id: string): Promise<User | null>;
   findByEmail(email: string): Promise<User | null>;
   findByCpf(cpf: string): Promise<User | null>;
+  getAll(): Promise<User[]>;
   updatePassword(data: UserUpdateInput): Promise<void>;
   userLogin(email: string): Promise<User | null>;
 }

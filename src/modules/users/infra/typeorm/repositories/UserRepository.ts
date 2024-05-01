@@ -43,6 +43,10 @@ export class UserRepository
     return await this.userRepository.findOne({ where: { cpf } });
   }
 
+  async getAll(): Promise<User[]> {
+    return await this.userRepository.find();
+  }
+
   async updatePassword({ id, password }: UserUpdateInput) {
     await this.userRepository.update(
       { id },

@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { UsersController } from '../controller/UsersController';
 import { upload } from '../../../../../shared/container/providers/multer/multer';
+import { isAuth } from '../../../../../shared/infra/http/middlewares/IsAuth';
 
 const UsersRouter = Router();
 const usersController = new UsersController();
@@ -66,6 +67,7 @@ UsersRouter.post(
 
 UsersRouter.get(
   '/:id',
+  isAuth,
   usersController.findById,
   /*  
     #swagger.tags = ['Users']
@@ -93,6 +95,7 @@ UsersRouter.get(
 
 UsersRouter.get(
   '/',
+  isAuth,
   usersController.getAll,
   /*  
     #swagger.tags = ['Users']
@@ -114,6 +117,7 @@ UsersRouter.get(
 
 UsersRouter.put(
   '/:id',
+  isAuth,
   upload.single('profilePhoto'),
   usersController.updateUser,
   /*  
@@ -165,6 +169,7 @@ UsersRouter.put(
 
 UsersRouter.delete(
   '/:id',
+  isAuth,
   usersController.delete,
   /*  
     #swagger.tags = ['Users']

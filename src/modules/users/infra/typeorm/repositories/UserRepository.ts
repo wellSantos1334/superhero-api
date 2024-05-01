@@ -69,10 +69,17 @@ export class UserRepository
     );
   }
 
-  async userLogin(email: string) {
+  async userLoginByEmail(email: string) {
     return await this.userRepository.findOne({
       where: { email },
-      select: ['id', 'email', 'name', 'password'],
+      select: ['id', 'email', 'cpf', 'name', 'password'],
+    });
+  }
+
+  async userLoginByCpf(cpf: string): Promise<User | null> {
+    return await this.userRepository.findOne({
+      where: { cpf },
+      select: ['id', 'email', 'cpf', 'name', 'password'],
     });
   }
 

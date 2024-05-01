@@ -23,7 +23,8 @@ interface IUserRepository {
   getAll(): Promise<User[]>;
   updatePassword(data: UserUpdatePasswordInput): Promise<void>;
   update(data: UserUpdateInput): Promise<void>;
-  userLogin(email: string): Promise<User | null>;
+  userLoginByEmail(email: string): Promise<User | null>;
+  userLoginByCpf(cpf: string): Promise<User | null>;
   delete(id: string): Promise<void>;
 }
 

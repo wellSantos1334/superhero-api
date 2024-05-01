@@ -1,0 +1,685 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API",
+    "description": "Documentação referente aos endpoints do sistema ..."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5555/"
+    },
+    {
+      "url": "https://localhost:5555/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Relaciona os endpoints referentes a autenticação"
+    },
+    {
+      "name": "Users",
+      "description": "Relaciona os endpoints referentes ao usuário"
+    }
+  ],
+  "paths": {
+    "/api/": {
+      "get": {
+        "tags": [
+          "Healtcheck"
+        ],
+        "summary": "Healtcheck",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Adiciona um novo User ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Nome do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Endereço de e-mail do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Senha do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "description": "Confirmação de senha do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "biography",
+            "in": "formData",
+            "description": "Biografia do usuário",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "profilePhoto",
+            "in": "formData",
+            "description": "Foto de perfil do usuário",
+            "required": false,
+            "schema": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Busca todos os User",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Busca um User pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "12220030040"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Wellington"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "welll@teste.com"
+                    },
+                    "profilePhoto": {
+                      "type": "string",
+                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                    },
+                    "biography": {
+                      "type": "string",
+                      "example": "Biografia"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-05-01T19:49:04.025Z"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Adiciona um novo User ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Nome do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Endereço de e-mail do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Senha do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "description": "Confirmação de senha do usuário",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "biography",
+            "in": "formData",
+            "description": "Biografia do usuário",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "profilePhoto",
+            "in": "formData",
+            "description": "Foto de perfil do usuário",
+            "required": false,
+            "schema": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Deleta um User pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do usuário"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/login/": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Realiza o login de um usuário utilizando o e-mail OU cpf",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@gmail.com"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "12250060030"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "password"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cC"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "cpf": {
+                          "type": "string",
+                          "example": "12250060030"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "example": "2a41a504-1f97-4a96-814d-244033089610"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Usuario"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "email@gmail.com"
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cC"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "cpf": {
+                          "type": "string",
+                          "example": "12250060030"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "example": "2a41a504-1f97-4a96-814d-244033089610"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Usuario"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "email@gmail.com"
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Digite Bearer + o token que você possui"
+      }
+    }
+  }
+}

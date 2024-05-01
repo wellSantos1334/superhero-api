@@ -4,6 +4,8 @@ import { CreateUserService } from '../../../services/CreateUserService';
 import { CreateUserDTO } from '../../../dtos/CreateUserDTO';
 import { FindByIdUserService } from '../../../services/FindByIdUserService';
 import { GetAllUserService } from '../../../services/GetAllUserService';
+import { UpdateUserDTO } from '../../../dtos/UpdateUserDTO';
+import { UpdateUserService } from '../../../services/UpdateUserService';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -38,5 +40,19 @@ export class UsersController {
     const users = await getAllUserService.execute();
 
     return response.status(200).json(users);
+  }
+
+  async updateUser(request: Request, response: Response) {
+    const requestValidated = new UpdateUserDTO({
+      ...request.params,
+      ...request.body,
+    });
+
+    const profilePhoto = request.file;
+    const updateUserService = container.resolve(UpdateUserService);
+
+    await updateUserService.execute(requestValidated.getAll(), profilePhoto);
+
+    return response.status(200).json('User updated successfully');
   }
 }

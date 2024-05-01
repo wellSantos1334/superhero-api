@@ -7,15 +7,22 @@ export type UserSaveInput = StrictOmit<
   'id' | 'createdAt' | 'updatedAt' | 'generateUuid'
 >;
 
-export type UserUpdateInput = Pick<User, 'id' | 'password'>;
+export type UserUpdatePasswordInput = Pick<User, 'id' | 'password'>;
+
+export type UserUpdateInput = StrictOmit<
+  User,
+  'createdAt' | 'updatedAt' | 'generateUuid'
+>;
 
 interface IUserRepository {
   create(data: UserSaveInput): Promise<User>;
   findById(id: string): Promise<User | null>;
   findByEmail(email: string): Promise<User | null>;
+  findByEmailAndNotId(email: string, id: string): Promise<User | null>;
   findByCpf(cpf: string): Promise<User | null>;
   getAll(): Promise<User[]>;
-  updatePassword(data: UserUpdateInput): Promise<void>;
+  updatePassword(data: UserUpdatePasswordInput): Promise<void>;
+  update(data: UserUpdateInput): Promise<void>;
   userLogin(email: string): Promise<User | null>;
 }
 

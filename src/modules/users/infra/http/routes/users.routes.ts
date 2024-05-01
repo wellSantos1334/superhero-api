@@ -112,4 +112,55 @@ UsersRouter.get(
   */
 );
 
+UsersRouter.put(
+  '/:id',
+  upload.single('profilePhoto'),
+  usersController.updateUser,
+  /*  
+    #swagger.tags = ['Users']
+    #swagger.summary = 'Adiciona um novo User ao sistema'
+    #swagger.parameters['name'] = {
+      in: 'formData',
+      type: 'string',
+      description: 'Nome do usuário',
+      required: true
+    }
+    #swagger.parameters['email'] = {
+    in: 'formData',
+    type: 'string',
+    description: 'Endereço de e-mail do usuário',
+    required: true
+    }
+    #swagger.parameters['password'] = {
+      in: 'formData',
+      type: 'string',
+      description: 'Senha do usuário',
+      required: true
+    }
+    #swagger.parameters['confirmPassword'] = {
+      in: 'formData',
+      type: 'string',
+      description: 'Confirmação de senha do usuário',
+      required: true
+    }
+    #swagger.parameters['biography'] = {
+      in: 'formData',
+      type: 'string',
+      description: 'Biografia do usuário',
+      required: false
+    }
+    #swagger.parameters['profilePhoto'] = {
+      in: 'formData',
+      type: 'file',
+      description: 'Foto de perfil do usuário',
+      required: false
+    }
+    #swagger.responses[201] = {
+      schema: {
+        message: "User updated successfully"
+      }
+    }
+  */
+);
+
 export { UsersRouter };

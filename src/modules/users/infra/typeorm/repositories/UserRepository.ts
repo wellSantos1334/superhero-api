@@ -1,10 +1,12 @@
 import { injectable } from 'tsyringe';
+import { Not } from 'typeorm';
 
 import { User } from '../entities/User';
 import type {
   IUserRepository,
   UserSaveInput,
   UserUpdateInput,
+  UserUpdatePasswordInput,
 } from '../../../repositories/IUserRepository';
 
 import { AppDataSource } from '@/shared/infra/typeorm';
@@ -39,20 +41,31 @@ export class UserRepository
     return await this.userRepository.findOne({ where: { email } });
   }
 
-  async findByCpf(cpf: string): Promise<User | null> {
+  async findByEmailAndNotId(email: string, id: string) {
+    return await this.userRepository.findOne({ where: { email, id: Not(id) } });
+  }
+
+  async findByCpf(cpf: string) {
     return await this.userRepository.findOne({ where: { cpf } });
   }
 
-  async getAll(): Promise<User[]> {
+  async getAll() {
     return await this.userRepository.find();
   }
 
-  async updatePassword({ id, password }: UserUpdateInput) {
+  async updatePassword({ id, password }: UserUpdatePasswordInput) {
     await this.userRepository.update(
       { id },
       {
         password: hashPassword(password),
       },
+    );
+  }
+
+  async update(data: UserUpdateInput) {
+    await this.userRepository.update(
+      { id: data.id },
+      { ...data, password: hashPassword(data.password) },
     );
   }
 

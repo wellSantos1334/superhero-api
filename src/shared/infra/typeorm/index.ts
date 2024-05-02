@@ -1,5 +1,6 @@
 import 'dotenv-safe/config';
-import { DataSource } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { type SeederOptions } from 'typeorm-extension';
 
 import { logger } from '../../container/providers/logger';
 
@@ -10,8 +11,9 @@ const prefixFolder = jsEnvs.includes(process.env.NODE_ENV as string)
 
 const entitiesFolder = `${prefixFolder}/**/entities/**/*{.ts,.js}`;
 const migrationsFolder = `${prefixFolder}/shared/infra/typeorm/migrations/**/*{.ts,.js}`;
+const seedsFolder = `${prefixFolder}/shared/infra/typeorm/seeds/**/*{.ts,.js}`;
 
-export const AppDataSource = new DataSource({
+const options: DataSourceOptions & SeederOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: process.env.DB_PORT ? +process.env.DB_PORT : 5432,
@@ -21,7 +23,10 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: [entitiesFolder],
   migrations: [migrationsFolder],
-});
+  seeds: [seedsFolder],
+};
+
+export const AppDataSource = new DataSource(options);
 
 AppDataSource.initialize()
   .then(() => logger.info('🚀 Database Connected!'))

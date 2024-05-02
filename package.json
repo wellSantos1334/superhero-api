@@ -23,7 +23,8 @@
     "test:e2e": "jest -c jest.e2e.config.ts $npm_config_path --runInBand -i --detectOpenHandles --forceExit",
     "test:e2e-coverage": "jest -c jest.e2e.config.ts -i --detectOpenHandles --forceExit --collectCoverage --runInBand",
     "test:e2e-verbose": "jest -c jest.e2e.config.ts $npm_config_path --runInBand -i --detectOpenHandles --forceExit --verbose",
-    "swagger-autogen": "npm run ts-node-config swagger/swagger.ts"
+    "swagger-autogen": "npm run ts-node-config swagger/swagger.ts",
+    "seed": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d ./src/shared/infra/typeorm/index.ts"
   },
   "license": "ISC",
   "dependencies": {
@@ -48,6 +49,7 @@
     "swagger-ui-express": "^5.0.0",
     "tsyringe": "^4.8.0",
     "typeorm": "^0.3.17",
+    "typeorm-extension": "^3.5.1",
     "uuid": "^9.0.0",
     "winston": "^3.10.0",
     "zod": "^3.22.4"

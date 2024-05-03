@@ -7,6 +7,7 @@ import { Router } from 'express';
 import { AuthenticationRouter } from '../../../../modules/authentication/infra/http/routes/authentication.routes';
 import { UsersRouter } from '../../../../modules/users/infra/http/routes/users.routes';
 import { AttributeRouter } from '../../../../modules/superheroes/infra/http/routes/attribute.routes';
+import { SuperpowerRouter } from '../../../../modules/superheroes/infra/http/routes/superpower.routes';
 
 const router = Router();
 
@@ -31,5 +32,6 @@ router.get(
 router.use('/users', UsersRouter);
 router.use('/login', AuthenticationRouter);
 router.use('/attribute', AttributeRouter);
+router.use('/superpower', SuperpowerRouter);
 
 export { router };

@@ -10,6 +10,7 @@ import { AttributeRouter } from '../../../../modules/superheroes/infra/http/rout
 import { SuperpowerRouter } from '../../../../modules/superheroes/infra/http/routes/superpower.routes';
 import { AlignmentRouter } from '../../../../modules/superheroes/infra/http/routes/alignment.routes';
 import { GenderRouter } from '../../../../modules/superheroes/infra/http/routes/gender.routes';
+import { ColourRouter } from '../../../../modules/superheroes/infra/http/routes/colour.routes';
 
 const router = Router();
 
@@ -37,5 +38,6 @@ router.use('/attribute', AttributeRouter);
 router.use('/superpower', SuperpowerRouter);
 router.use('/alignment', AlignmentRouter);
 router.use('/gender', GenderRouter);
+router.use('/colour', ColourRouter);
 
 export { router };

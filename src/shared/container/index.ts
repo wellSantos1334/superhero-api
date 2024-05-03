@@ -10,6 +10,8 @@ import { AlignmentRepository } from '../../modules/superheroes/infra/typeorm/rep
 import { IAlignmentRepository } from '../../modules/superheroes/repositories/IAlignmentRepository';
 import { GenderRepository } from '../../modules/superheroes/infra/typeorm/repositories/GenderRepository';
 import { IGenderRepository } from '../../modules/superheroes/repositories/IGenderRepository';
+import { ColourRepository } from '../../modules/superheroes/infra/typeorm/repositories/ColourRepository';
+import { IColourRepository } from '../../modules/superheroes/repositories/IColourRepository';
 
 container.register<IUserRepository>('UserRepository', UserRepository);
 container.register<IAttributeRepository>(
@@ -25,3 +27,4 @@ container.register<IAlignmentRepository>(
   AlignmentRepository,
 );
 container.register<IGenderRepository>('GenderRepository', GenderRepository);
+container.register<IColourRepository>('ColourRepository', ColourRepository);

@@ -12,6 +12,7 @@ import { AlignmentRouter } from '../../../../modules/superheroes/infra/http/rout
 import { GenderRouter } from '../../../../modules/superheroes/infra/http/routes/gender.routes';
 import { ColourRouter } from '../../../../modules/superheroes/infra/http/routes/colour.routes';
 import { RaceRouter } from '../../../../modules/superheroes/infra/http/routes/race.routes';
+import { PublisherRouter } from '../../../../modules/superheroes/infra/http/routes/publisher.routes';
 
 const router = Router();
 
@@ -41,5 +42,6 @@ router.use('/alignment', AlignmentRouter);
 router.use('/gender', GenderRouter);
 router.use('/colour', ColourRouter);
 router.use('/race', RaceRouter);
+router.use('/publisher', PublisherRouter);
 
 export { router };

@@ -6,6 +6,7 @@ import { Router } from 'express';
  */
 import { AuthenticationRouter } from '../../../../modules/authentication/infra/http/routes/authentication.routes';
 import { UsersRouter } from '../../../../modules/users/infra/http/routes/users.routes';
+import { AttributeRouter } from '../../../../modules/superheroes/infra/http/routes/attribute.routes';
 
 const router = Router();
 
@@ -29,5 +30,6 @@ router.get(
 
 router.use('/users', UsersRouter);
 router.use('/login', AuthenticationRouter);
+router.use('/attribute', AttributeRouter);
 
 export { router };

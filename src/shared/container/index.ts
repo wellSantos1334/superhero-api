@@ -8,6 +8,8 @@ import { SuperpowerRepository } from '../../modules/superheroes/infra/typeorm/re
 import { ISuperpowerRepository } from '../../modules/superheroes/repositories/ISuperpowerRepository';
 import { AlignmentRepository } from '../../modules/superheroes/infra/typeorm/repositories/AlignmentRepository';
 import { IAlignmentRepository } from '../../modules/superheroes/repositories/IAlignmentRepository';
+import { GenderRepository } from '../../modules/superheroes/infra/typeorm/repositories/GenderRepository';
+import { IGenderRepository } from '../../modules/superheroes/repositories/IGenderRepository';
 
 container.register<IUserRepository>('UserRepository', UserRepository);
 container.register<IAttributeRepository>(
@@ -22,3 +24,4 @@ container.register<IAlignmentRepository>(
   'AlignmentRepository',
   AlignmentRepository,
 );
+container.register<IGenderRepository>('GenderRepository', GenderRepository);

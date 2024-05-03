@@ -9,6 +9,7 @@ import { UsersRouter } from '../../../../modules/users/infra/http/routes/users.r
 import { AttributeRouter } from '../../../../modules/superheroes/infra/http/routes/attribute.routes';
 import { SuperpowerRouter } from '../../../../modules/superheroes/infra/http/routes/superpower.routes';
 import { AlignmentRouter } from '../../../../modules/superheroes/infra/http/routes/alignment.routes';
+import { GenderRouter } from '../../../../modules/superheroes/infra/http/routes/gender.routes';
 
 const router = Router();
 
@@ -35,5 +36,6 @@ router.use('/login', AuthenticationRouter);
 router.use('/attribute', AttributeRouter);
 router.use('/superpower', SuperpowerRouter);
 router.use('/alignment', AlignmentRouter);
+router.use('/gender', GenderRouter);
 
 export { router };

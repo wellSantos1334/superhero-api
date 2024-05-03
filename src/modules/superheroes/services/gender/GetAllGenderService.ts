@@ -6,10 +6,10 @@ import { IGenderRepository } from '../../repositories/IGenderRepository';
 export class GetAllGenderService {
   constructor(
     @inject('GenderRepository')
-    private readonly alignmentRepository: IGenderRepository,
+    private readonly genderRepository: IGenderRepository,
   ) {}
 
   async execute() {
-    return await this.alignmentRepository.getAll();
+    return await this.genderRepository.getAll();
   }
 }

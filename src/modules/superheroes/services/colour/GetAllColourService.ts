@@ -6,10 +6,10 @@ import { IColourRepository } from '../../repositories/IColourRepository';
 export class GetAllColourService {
   constructor(
     @inject('ColourRepository')
-    private readonly alignmentRepository: IColourRepository,
+    private readonly colourRepository: IColourRepository,
   ) {}
 
   async execute() {
-    return await this.alignmentRepository.getAll();
+    return await this.colourRepository.getAll();
   }
 }

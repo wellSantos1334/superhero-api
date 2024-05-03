@@ -8,13 +8,13 @@ import { FindByIdPublisherService } from './FindByIdPublisherService';
 export class DeletePublisherService {
   constructor(
     @inject('PublisherRepository')
-    private readonly alignmentRepository: IPublisherRepository,
+    private readonly publisherRepository: IPublisherRepository,
     private readonly findByIdPublisherService: FindByIdPublisherService,
   ) {}
 
   async execute(id: number) {
     const alignment = await this.findByIdPublisherService.execute(id);
 
-    return await this.alignmentRepository.delete(alignment.id);
+    return await this.publisherRepository.delete(alignment.id);
   }
 }

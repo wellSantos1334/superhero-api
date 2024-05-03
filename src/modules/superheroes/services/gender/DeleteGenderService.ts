@@ -8,13 +8,13 @@ import { FindByIdGenderService } from './FindByIdGenderService';
 export class DeleteGenderService {
   constructor(
     @inject('GenderRepository')
-    private readonly alignmentRepository: IGenderRepository,
+    private readonly genderRepository: IGenderRepository,
     private readonly findByIdGenderService: FindByIdGenderService,
   ) {}
 
   async execute(id: number) {
     const alignment = await this.findByIdGenderService.execute(id);
 
-    return await this.alignmentRepository.delete(alignment.id);
+    return await this.genderRepository.delete(alignment.id);
   }
 }

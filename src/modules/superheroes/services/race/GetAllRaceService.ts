@@ -6,10 +6,10 @@ import { IRaceRepository } from '../../repositories/IRaceRepository';
 export class GetAllRaceService {
   constructor(
     @inject('RaceRepository')
-    private readonly alignmentRepository: IRaceRepository,
+    private readonly raceRepository: IRaceRepository,
   ) {}
 
   async execute() {
-    return await this.alignmentRepository.getAll();
+    return await this.raceRepository.getAll();
   }
 }

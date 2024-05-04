@@ -1,4 +1,5 @@
 import { injectable } from 'tsyringe';
+import { In } from 'typeorm';
 
 import { Publisher } from '../entities/Publisher';
 import type { IPublisherRepository } from '../../../repositories/IPublisherRepository';
@@ -39,5 +40,29 @@ export class PublisherRepository
 
   async delete(id: number) {
     await this.publisherRepository.delete(id);
+  }
+
+  async getPublisherByIds(ids: number[]): Promise<Publisher[]> {
+    return await this.publisherRepository.find({
+      where: {
+        id: In(ids),
+      },
+      relations: {
+        superheroes: {
+          heroAttributes: {
+            attribute: true,
+          },
+        },
+      },
+      order: {
+        superheroes: {
+          heroAttributes: {
+            attribute: {
+              attributeName: 'ASC',
+            },
+          },
+        },
+      },
+    });
   }
 }

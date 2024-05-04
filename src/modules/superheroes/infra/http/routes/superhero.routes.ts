@@ -397,4 +397,32 @@ SuperheroRouter.delete(
   */
 );
 
+SuperheroRouter.post(
+  '/battle',
+  isAuth,
+  superheroController.createBattle,
+  /*  
+    #swagger.tags = ['Superhero']
+    #swagger.summary = 'Cria uma batalha entre Superhero de acordo com a Editora'
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.parameters['body'] = {
+      in: 'body',
+      schema: {
+        "publisherOne": 5,
+        "publisherTwo": 6
+      }
+    }
+    #swagger.responses[200] = {
+      schema: [
+        "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
+        "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
+        "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
+        "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
+        "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
+        "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)" 
+      ]
+    }
+  */
+);
+
 export { SuperheroRouter };

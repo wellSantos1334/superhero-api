@@ -10,6 +10,8 @@ import { DeleteSuperheroService } from '../../../services/superhero/DeleteSuperh
 import { IPageRequest } from '../../../../../shared/dtos/IPageRequest';
 import { GetOrderSuperheroDTO } from '../../../dtos/superhero/GetOrderSuperheroDTO';
 import { GetFilterSuperheroDTO } from '../../../dtos/superhero/GetFilterSuperheroDTO';
+import { CreateSuperheroBattleDTO } from '../../../dtos/superhero/CreateSuperheroBattleDTO';
+import { CreateSuperheroBattleService } from '../../../services/superhero/CreateSuperheroBattleService';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -77,5 +79,19 @@ export class SuperheroController {
     await deleteSuperheroService.execute(Number(id));
 
     return response.status(200).json('Superhero deleted successfully');
+  }
+
+  async createBattle(request: Request, response: Response) {
+    const requestValidated = new CreateSuperheroBattleDTO(request.body);
+
+    const createSuperheroBattleService = container.resolve(
+      CreateSuperheroBattleService,
+    );
+
+    const createdBattle = await createSuperheroBattleService.execute(
+      requestValidated.getAll(),
+    );
+
+    return response.status(200).json(createdBattle);
   }
 }

@@ -5081,6 +5081,91 @@
           }
         }
       }
+    },
+    "/api/superhero/battle": {
+      "post": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Cria uma batalha entre Superhero de acordo com a Editora",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "publisherOne": {
+                  "type": "number",
+                  "example": 5
+                },
+                "publisherTwo": {
+                  "type": "number",
+                  "example": 6
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
+                    "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
+                    "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                    "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {

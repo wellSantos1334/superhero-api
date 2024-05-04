@@ -8,4 +8,5 @@ export interface IPublisherRepository {
   getAll(): Promise<Publisher[]>;
   update(data: UpdatePublisher): Promise<void>;
   delete(id: number): Promise<void>;
+  getPublisherByIds(ids: number[]): Promise<Publisher[]>;
 }

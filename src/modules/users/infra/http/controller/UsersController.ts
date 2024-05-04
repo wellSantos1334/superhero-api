@@ -49,20 +49,27 @@ export class UsersController {
       ...request.body,
     });
 
+    const { userId } = response.locals;
+    console.log(userId);
     const profilePhoto = request.file;
     const updateUserService = container.resolve(UpdateUserService);
 
-    await updateUserService.execute(requestValidated.getAll(), profilePhoto);
+    await updateUserService.execute(
+      requestValidated.getAll(),
+      profilePhoto,
+      userId,
+    );
 
     return response.status(200).json('User updated successfully');
   }
 
   async delete(request: Request, response: Response) {
     const { id } = request.params;
+    const { userId } = response.locals;
 
     const deleteUserService = container.resolve(DeleteUserService);
 
-    await deleteUserService.execute(id);
+    await deleteUserService.execute(id, userId);
 
     return response.status(200).json('User deleted successfully');
   }

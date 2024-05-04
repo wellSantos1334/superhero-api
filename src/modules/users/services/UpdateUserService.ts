@@ -2,6 +2,8 @@ import { inject, injectable } from 'tsyringe';
 
 import { IUserRepository } from '../repositories/IUserRepository';
 import { UpdateUser } from '../dtos/UpdateUserDTO';
+import { addAudit } from '../../../shared/infra/mongo/addAudit';
+import { addLog } from '../../../shared/infra/mongo/addLog';
 
 import { FindByIdUserService } from './FindByIdUserService';
 
@@ -18,6 +20,7 @@ export class UpdateUserService {
   async execute(
     data: UpdateUser,
     profilePhoto: Express.Multer.File | undefined,
+    userId: string,
   ) {
     const user = await this.findByIdUserService.execute(data.id);
 
@@ -27,12 +30,20 @@ export class UpdateUserService {
     );
 
     if (checkEmailExists) {
+      await addLog({
+        log: 'Conflict',
+        message: 'Email already exist',
+      });
       throw new Conflict('Email already exist');
     }
 
     const cpfAlreadyExists = await this.userRepository.findByCpf(data.cpf);
 
     if (cpfAlreadyExists) {
+      await addLog({
+        log: 'Conflict',
+        message: 'CPF already exists',
+      });
       throw new Conflict('CPF already exists');
     }
 
@@ -44,6 +55,16 @@ export class UpdateUserService {
       email: data.email,
       biography: data.biography,
       profilePhoto: profilePhoto?.filename ?? '',
+    });
+
+    console.log(userId);
+
+    await addAudit({
+      userId,
+      module: 'User',
+      feature: 'Update',
+      oldData: { user },
+      newData: { data },
     });
   }
 }

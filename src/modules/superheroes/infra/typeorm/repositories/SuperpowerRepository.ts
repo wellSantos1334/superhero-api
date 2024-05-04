@@ -1,4 +1,5 @@
 import { injectable } from 'tsyringe';
+import { In } from 'typeorm';
 
 import { Superpower } from '../entities/Superpower';
 import type { ISuperpowerRepository } from '../../../repositories/ISuperpowerRepository';
@@ -28,6 +29,14 @@ export class SuperpowerRepository
 
   async findById(id: number) {
     return await this.superpowerRepository.findOneBy({ id });
+  }
+
+  async findByIds(ids: number[]) {
+    return await this.superpowerRepository.find({
+      where: {
+        id: In(ids),
+      },
+    });
   }
 
   async getAll() {

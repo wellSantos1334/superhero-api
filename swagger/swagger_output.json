@@ -3319,11 +3319,49 @@
                     "properties": {
                       "id": {
                         "type": "number",
-                        "example": 62
+                        "example": 3739
                       },
-                      "heroAttribute": {
-                        "type": "string",
-                        "example": "HeroAttributeName"
+                      "attributeValue": {
+                        "type": "number",
+                        "example": 30
+                      },
+                      "superhero": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "superheroName": {
+                            "type": "string",
+                            "example": "3-D Man"
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "example": "Charles Chandler"
+                          },
+                          "heightCm": {
+                            "type": "number",
+                            "example": 188
+                          },
+                          "weightKg": {
+                            "type": "number",
+                            "example": 90
+                          }
+                        }
+                      },
+                      "attribute": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "attributeName": {
+                            "type": "string",
+                            "example": "Intelligence"
+                          }
+                        }
                       }
                     }
                   },
@@ -3340,11 +3378,49 @@
                     "properties": {
                       "id": {
                         "type": "number",
-                        "example": 62
+                        "example": 3739
                       },
-                      "heroAttribute": {
-                        "type": "string",
-                        "example": "HeroAttributeName"
+                      "attributeValue": {
+                        "type": "number",
+                        "example": 30
+                      },
+                      "superhero": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "superheroName": {
+                            "type": "string",
+                            "example": "3-D Man"
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "example": "Charles Chandler"
+                          },
+                          "heightCm": {
+                            "type": "number",
+                            "example": 188
+                          },
+                          "weightKg": {
+                            "type": "number",
+                            "example": 90
+                          }
+                        }
+                      },
+                      "attribute": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "attributeName": {
+                            "type": "string",
+                            "example": "Intelligence"
+                          }
+                        }
                       }
                     }
                   },
@@ -3532,9 +3608,17 @@
             "schema": {
               "type": "object",
               "properties": {
-                "heroAttribute": {
-                  "type": "string",
-                  "example": "HeroAttributeNameAtualizado"
+                "attributeValue": {
+                  "type": "number",
+                  "example": 50
+                },
+                "superhero": {
+                  "type": "number",
+                  "example": 2
+                },
+                "attribute": {
+                  "type": "number",
+                  "example": 2
                 }
               }
             }
@@ -3625,6 +3709,1235 @@
                     "message": {
                       "type": "string",
                       "example": "HeroAttribute deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/superhero/": {
+      "post": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Adiciona um novo Superhero ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "superheroName": {
+                  "type": "string",
+                  "example": "NovoHeroName"
+                },
+                "fullName": {
+                  "type": "string",
+                  "example": "NovoHeroFullName"
+                },
+                "heightCm": {
+                  "type": "number",
+                  "example": 100
+                },
+                "weightKg": {
+                  "type": "number",
+                  "example": 50
+                },
+                "gender": {
+                  "type": "number",
+                  "example": 1
+                },
+                "eyeColour": {
+                  "type": "number",
+                  "example": 1
+                },
+                "hairColour": {
+                  "type": "number",
+                  "example": 2
+                },
+                "skinColour": {
+                  "type": "number",
+                  "example": 3
+                },
+                "race": {
+                  "type": "number",
+                  "example": 1
+                },
+                "publisher": {
+                  "type": "number",
+                  "example": 1
+                },
+                "alignment": {
+                  "type": "number",
+                  "example": 1
+                },
+                "superpowers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "powerId": {
+                        "type": "number",
+                        "example": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "superheroName": {
+                      "type": "string",
+                      "example": "NovoHeroName"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "NovoHeroFullName"
+                    },
+                    "heightCm": {
+                      "type": "number",
+                      "example": 100
+                    },
+                    "weightKg": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        }
+                      }
+                    },
+                    "eyeColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "No Colour"
+                        }
+                      }
+                    },
+                    "hairColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 2
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Amber"
+                        }
+                      }
+                    },
+                    "skinColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Auburn"
+                        }
+                      }
+                    },
+                    "race": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "race": {
+                          "type": "string",
+                          "example": "-"
+                        }
+                      }
+                    },
+                    "publisher": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "alignment": {
+                          "type": "string",
+                          "example": "Good"
+                        }
+                      }
+                    },
+                    "superpowers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "powerName": {
+                            "type": "string",
+                            "example": "Accelerated Healing"
+                          }
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 10
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "superheroName": {
+                      "type": "string",
+                      "example": "NovoHeroName"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "NovoHeroFullName"
+                    },
+                    "heightCm": {
+                      "type": "number",
+                      "example": 100
+                    },
+                    "weightKg": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        }
+                      }
+                    },
+                    "eyeColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "No Colour"
+                        }
+                      }
+                    },
+                    "hairColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 2
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Amber"
+                        }
+                      }
+                    },
+                    "skinColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Auburn"
+                        }
+                      }
+                    },
+                    "race": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "race": {
+                          "type": "string",
+                          "example": "-"
+                        }
+                      }
+                    },
+                    "publisher": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "alignment": {
+                          "type": "string",
+                          "example": "Good"
+                        }
+                      }
+                    },
+                    "superpowers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "powerName": {
+                            "type": "string",
+                            "example": "Accelerated Healing"
+                          }
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 10
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Busca todos os Superheros",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "superheroName": {
+                        "type": "string",
+                        "example": "NovoHeroName"
+                      },
+                      "fullName": {
+                        "type": "string",
+                        "example": "NovoHeroFullName"
+                      },
+                      "heightCm": {
+                        "type": "number",
+                        "example": 100
+                      },
+                      "weightKg": {
+                        "type": "number",
+                        "example": 50
+                      },
+                      "gender": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "gender": {
+                            "type": "string",
+                            "example": "Male"
+                          }
+                        }
+                      },
+                      "eyeColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "No Colour"
+                          }
+                        }
+                      },
+                      "hairColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "Amber"
+                          }
+                        }
+                      },
+                      "skinColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 3
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "Auburn"
+                          }
+                        }
+                      },
+                      "race": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "race": {
+                            "type": "string",
+                            "example": "-"
+                          }
+                        }
+                      },
+                      "publisher": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "publisher": {
+                            "type": "string",
+                            "example": ""
+                          }
+                        }
+                      },
+                      "alignment": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "alignment": {
+                            "type": "string",
+                            "example": "Good"
+                          }
+                        }
+                      },
+                      "heroAttributes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 3741
+                            },
+                            "attributeValue": {
+                              "type": "number",
+                              "example": 50
+                            }
+                          }
+                        }
+                      },
+                      "superpowers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 2
+                            },
+                            "powerName": {
+                              "type": "string",
+                              "example": "Accelerated Healing"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "superheroName": {
+                        "type": "string",
+                        "example": "NovoHeroName"
+                      },
+                      "fullName": {
+                        "type": "string",
+                        "example": "NovoHeroFullName"
+                      },
+                      "heightCm": {
+                        "type": "number",
+                        "example": 100
+                      },
+                      "weightKg": {
+                        "type": "number",
+                        "example": 50
+                      },
+                      "gender": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "gender": {
+                            "type": "string",
+                            "example": "Male"
+                          }
+                        }
+                      },
+                      "eyeColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "No Colour"
+                          }
+                        }
+                      },
+                      "hairColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "Amber"
+                          }
+                        }
+                      },
+                      "skinColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 3
+                          },
+                          "colour": {
+                            "type": "string",
+                            "example": "Auburn"
+                          }
+                        }
+                      },
+                      "race": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "race": {
+                            "type": "string",
+                            "example": "-"
+                          }
+                        }
+                      },
+                      "publisher": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "publisher": {
+                            "type": "string",
+                            "example": ""
+                          }
+                        }
+                      },
+                      "alignment": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "alignment": {
+                            "type": "string",
+                            "example": "Good"
+                          }
+                        }
+                      },
+                      "heroAttributes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 3741
+                            },
+                            "attributeValue": {
+                              "type": "number",
+                              "example": 50
+                            }
+                          }
+                        }
+                      },
+                      "superpowers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 2
+                            },
+                            "powerName": {
+                              "type": "string",
+                              "example": "Accelerated Healing"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/superhero/{id}": {
+      "get": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Busca um Superhero pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superhero"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "superheroName": {
+                      "type": "string",
+                      "example": "NovoHeroName"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "NovoHeroFullName"
+                    },
+                    "heightCm": {
+                      "type": "number",
+                      "example": 100
+                    },
+                    "weightKg": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        }
+                      }
+                    },
+                    "eyeColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "No Colour"
+                        }
+                      }
+                    },
+                    "hairColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 2
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Amber"
+                        }
+                      }
+                    },
+                    "skinColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Auburn"
+                        }
+                      }
+                    },
+                    "race": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "race": {
+                          "type": "string",
+                          "example": "-"
+                        }
+                      }
+                    },
+                    "publisher": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "alignment": {
+                          "type": "string",
+                          "example": "Good"
+                        }
+                      }
+                    },
+                    "heroAttributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 3741
+                          },
+                          "attributeValue": {
+                            "type": "number",
+                            "example": 50
+                          }
+                        }
+                      }
+                    },
+                    "superpowers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "powerName": {
+                            "type": "string",
+                            "example": "Accelerated Healing"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "superheroName": {
+                      "type": "string",
+                      "example": "NovoHeroName"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "NovoHeroFullName"
+                    },
+                    "heightCm": {
+                      "type": "number",
+                      "example": 100
+                    },
+                    "weightKg": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        }
+                      }
+                    },
+                    "eyeColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "No Colour"
+                        }
+                      }
+                    },
+                    "hairColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 2
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Amber"
+                        }
+                      }
+                    },
+                    "skinColour": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "colour": {
+                          "type": "string",
+                          "example": "Auburn"
+                        }
+                      }
+                    },
+                    "race": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "race": {
+                          "type": "string",
+                          "example": "-"
+                        }
+                      }
+                    },
+                    "publisher": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "alignment": {
+                          "type": "string",
+                          "example": "Good"
+                        }
+                      }
+                    },
+                    "heroAttributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 3741
+                          },
+                          "attributeValue": {
+                            "type": "number",
+                            "example": 50
+                          }
+                        }
+                      }
+                    },
+                    "superpowers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 2
+                          },
+                          "powerName": {
+                            "type": "string",
+                            "example": "Accelerated Healing"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Atualiza um Superhero existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superhero"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "superheroName": {
+                  "type": "string",
+                  "example": "NovoHeroNameAtualizado"
+                },
+                "fullName": {
+                  "type": "string",
+                  "example": "NovoHeroFullNameAtualizado"
+                },
+                "heightCm": {
+                  "type": "number",
+                  "example": 100
+                },
+                "weightKg": {
+                  "type": "number",
+                  "example": 50
+                },
+                "gender": {
+                  "type": "number",
+                  "example": 1
+                },
+                "eyeColour": {
+                  "type": "number",
+                  "example": 1
+                },
+                "hairColour": {
+                  "type": "number",
+                  "example": 2
+                },
+                "skinColour": {
+                  "type": "number",
+                  "example": 3
+                },
+                "race": {
+                  "type": "number",
+                  "example": 1
+                },
+                "publisher": {
+                  "type": "number",
+                  "example": 1
+                },
+                "alignment": {
+                  "type": "number",
+                  "example": 1
+                },
+                "superpowers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "powerId": {
+                        "type": "number",
+                        "example": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superhero updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superhero updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Superhero"
+        ],
+        "summary": "Deleta um Superhero pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superhero"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superhero deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superhero deleted successfully"
                     }
                   },
                   "xml": {

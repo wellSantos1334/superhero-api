@@ -14,6 +14,7 @@ import { ColourRouter } from '../../../../modules/superheroes/infra/http/routes/
 import { RaceRouter } from '../../../../modules/superheroes/infra/http/routes/race.routes';
 import { PublisherRouter } from '../../../../modules/superheroes/infra/http/routes/publisher.routes';
 import { HeroAttributeRouter } from '../../../../modules/superheroes/infra/http/routes/hero-attributes.routes';
+import { SuperheroRouter } from '../../../../modules/superheroes/infra/http/routes/superhero.routes';
 
 const router = Router();
 
@@ -45,5 +46,6 @@ router.use('/colour', ColourRouter);
 router.use('/race', RaceRouter);
 router.use('/publisher', PublisherRouter);
 router.use('/hero-attribute', HeroAttributeRouter);
+router.use('/superhero', SuperheroRouter);
 
 export { router };

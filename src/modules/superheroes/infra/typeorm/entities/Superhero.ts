@@ -65,7 +65,7 @@ export class Superhero {
   @OneToMany(() => HeroAttribute, (heroAttribute) => heroAttribute.superhero)
   heroAttributes: HeroAttribute[];
 
-  @ManyToMany(() => Superpower)
+  @ManyToMany(() => Superpower, { cascade: true })
   @JoinTable({
     name: 'hero_power',
     joinColumn: { name: 'hero_id' },

@@ -28,15 +28,40 @@ export class SuperheroRepository
   }
 
   async findById(id: number) {
-    return await this.superheroRepository.findOneBy({ id });
+    return await this.superheroRepository.findOne({
+      where: { id },
+      relations: {
+        gender: true,
+        eyeColour: true,
+        hairColour: true,
+        skinColour: true,
+        race: true,
+        publisher: true,
+        alignment: true,
+        heroAttributes: true,
+        superpowers: true,
+      },
+    });
   }
 
   async getAll() {
-    return await this.superheroRepository.find();
+    return await this.superheroRepository.find({
+      relations: {
+        gender: true,
+        eyeColour: true,
+        hairColour: true,
+        skinColour: true,
+        race: true,
+        publisher: true,
+        alignment: true,
+        heroAttributes: true,
+        superpowers: true,
+      },
+    });
   }
 
   async update(data: SuperheroUpdateInput) {
-    await this.superheroRepository.update({ id: data.id }, data);
+    await this.superheroRepository.save(data);
   }
 
   async delete(id: number) {

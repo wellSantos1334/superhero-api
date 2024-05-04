@@ -50,8 +50,8 @@ export class UsersController {
     });
 
     const { userId } = response.locals;
-    console.log(userId);
     const profilePhoto = request.file;
+
     const updateUserService = container.resolve(UpdateUserService);
 
     await updateUserService.execute(

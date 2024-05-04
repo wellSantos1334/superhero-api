@@ -57,8 +57,6 @@ export class UpdateUserService {
       profilePhoto: profilePhoto?.filename ?? '',
     });
 
-    console.log(userId);
-
     await addAudit({
       userId,
       module: 'User',

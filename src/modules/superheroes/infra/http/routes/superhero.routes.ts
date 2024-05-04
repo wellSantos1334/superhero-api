@@ -168,64 +168,165 @@ SuperheroRouter.get(
   /*  
     #swagger.tags = ['Superhero']
     #swagger.summary = 'Busca todos os Superheros'
+    #swagger.parameters['page'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Número da página que deseja acessar',
+      required: 'false'
+    }
+    #swagger.parameters['size'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Quantidade de dados que deseja trazer',
+      required: 'false'
+    }
+    #swagger.parameters['attributeValue'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de order para attributeValue - DESC ou ASC',
+      required: 'false'
+    }
+    #swagger.parameters['powerId'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de order para powerId - DESC ou ASC',
+      required: 'false'
+    }
+    #swagger.parameters['attributeName'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de filtro para attributeName',
+      required: 'false'
+    }
+    #swagger.parameters['alignment'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de filtro para alignment',
+      required: 'false'
+    }
+    #swagger.parameters['powerName'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de filtro para powerName',
+      required: 'false'
+    }
+    #swagger.parameters['publisher'] = {
+      in: 'path',
+      type: 'number',
+      description: 'Opção de filtro para publisher',
+      required: 'false'
+    }
     #swagger.responses[200] = {
-      schema: [
-        {
-          "id": 10,
-          "superheroName": "NovoHeroName",
-          "fullName": "NovoHeroFullName",
-          "heightCm": 100,
-          "weightKg": 50,
-          "gender": {
+      schema: {
+        "currentPage": 1,
+        "totalItems": 750,
+        "totalPages": 750,
+        "content": [
+          {
             "id": 1,
-            "gender": "Male"
-          },
-          "eyeColour": {
-            "id": 1,
-            "colour": "No Colour"
-          },
-          "hairColour": {
-            "id": 2,
-            "colour": "Amber"
-          },
-          "skinColour": {
-            "id": 3,
-            "colour": "Auburn"
-          },
-          "race": {
-            "id": 1,
-            "race": "-"
-          },
-          "publisher": {
-            "id": 1,
-            "publisher": ""
-          },
-          "alignment": {
-            "id": 1,
-            "alignment": "Good"
-          },
-          "heroAttributes": [
-            {
-              "id": 3740,
-              "attributeValue": 30
-            },
-            {
-              "id": 3741,
-              "attributeValue": 50
-            }
-          ],
-          "superpowers": [
-            {
+            "superheroName": "3-D Man",
+            "fullName": "Charles Chandler",
+            "heightCm": 188,
+            "weightKg": 90,
+            "gender": {
               "id": 1,
-              "powerName": "Agility"
+              "gender": "Male"
             },
-            {
-              "id": 2,
-              "powerName": "Accelerated Healing"
-            }
-          ]
-        }
-      ]
+            "eyeColour": {
+              "id": 9,
+              "colour": "Brown"
+            },
+            "hairColour": {
+              "id": 13,
+              "colour": "Grey"
+            },
+            "skinColour": {
+              "id": 1,
+              "colour": "No Colour"
+            },
+            "race": {
+              "id": 1,
+              "race": "-"
+            },
+            "publisher": {
+              "id": 13,
+              "publisher": "Marvel Comics"
+            },
+            "alignment": {
+              "id": 1,
+              "alignment": "Good"
+            },
+            "heroAttributes": [
+              {
+                "id": 1,
+                "attributeValue": 80,
+                "attribute": {
+                  "id": 1,
+                  "attributeName": "Intelligence"
+                }
+              },
+              {
+                "id": 624,
+                "attributeValue": 35,
+                "attribute": {
+                  "id": 2,
+                  "attributeName": "Strength"
+                }
+              },
+              {
+                "id": 1247,
+                "attributeValue": 45,
+                "attribute": {
+                  "id": 3,
+                  "attributeName": "Speed"
+                }
+              },
+              {
+                "id": 1870,
+                "attributeValue": 45,
+                "attribute": {
+                  "id": 4,
+                  "attributeName": "Durability"
+                }
+              },
+              {
+                "id": 2493,
+                "attributeValue": 45,
+                "attribute": {
+                  "id": 5,
+                  "attributeName": "Power"
+                }
+              },
+              {
+                "id": 3116,
+                "attributeValue": 45,
+                "attribute": {
+                  "id": 6,
+                  "attributeName": "Combat"
+                }
+              }
+            ],
+            "superpowers": [
+              {
+                "id": 1,
+                "powerName": "Agility"
+              },
+              {
+                "id": 18,
+                "powerName": "Super Strength"
+              },
+              {
+                "id": 26,
+                "powerName": "Stamina"
+              },
+              {
+                "id": 31,
+                "powerName": "Super Speed"
+              }
+            ]
+          }
+        ]
+      }
     }
   */
 );

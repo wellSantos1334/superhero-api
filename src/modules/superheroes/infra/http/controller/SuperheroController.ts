@@ -7,6 +7,9 @@ import { GetAllSuperheroService } from '../../../services/superhero/GetAllSuperh
 import { UpdateSuperheroDTO } from '../../../dtos/superhero/UpdateSuperheroDTO';
 import { UpdateSuperheroService } from '../../../services/superhero/UpdateSuperheroService';
 import { DeleteSuperheroService } from '../../../services/superhero/DeleteSuperheroService';
+import { IPageRequest } from '../../../../../shared/dtos/IPageRequest';
+import { GetOrderSuperheroDTO } from '../../../dtos/superhero/GetOrderSuperheroDTO';
+import { GetFilterSuperheroDTO } from '../../../dtos/superhero/GetFilterSuperheroDTO';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -36,9 +39,18 @@ export class SuperheroController {
   }
 
   async getAll(request: Request, response: Response) {
+    const { page = 1, size = 30 }: IPageRequest = request.query;
+    const order = new GetOrderSuperheroDTO(request.query);
+    const filter = new GetFilterSuperheroDTO(request.query);
+
     const getAllSuperheroService = container.resolve(GetAllSuperheroService);
 
-    const superheros = await getAllSuperheroService.execute();
+    const superheros = await getAllSuperheroService.execute(
+      page,
+      size,
+      order.getAll(),
+      filter.getAll(),
+    );
 
     return response.status(200).json(superheros);
   }

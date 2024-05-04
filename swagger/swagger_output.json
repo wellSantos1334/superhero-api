@@ -4102,6 +4102,78 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description": "Número da página que deseja acessar",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "size",
+            "in": "path",
+            "description": "Quantidade de dados que deseja trazer",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "attributeValue",
+            "in": "path",
+            "description": "Opção de order para attributeValue - DESC ou ASC",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "powerId",
+            "in": "path",
+            "description": "Opção de order para powerId - DESC ou ASC",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "attributeName",
+            "in": "path",
+            "description": "Opção de filtro para attributeName",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "alignment",
+            "in": "path",
+            "description": "Opção de filtro para alignment",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "powerName",
+            "in": "path",
+            "description": "Opção de filtro para powerName",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "publisher",
+            "in": "path",
+            "description": "Opção de filtro para publisher",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -4110,149 +4182,179 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 10
-                      },
-                      "superheroName": {
-                        "type": "string",
-                        "example": "NovoHeroName"
-                      },
-                      "fullName": {
-                        "type": "string",
-                        "example": "NovoHeroFullName"
-                      },
-                      "heightCm": {
-                        "type": "number",
-                        "example": 100
-                      },
-                      "weightKg": {
-                        "type": "number",
-                        "example": 50
-                      },
-                      "gender": {
+                  "type": "object",
+                  "properties": {
+                    "currentPage": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "totalItems": {
+                      "type": "number",
+                      "example": 750
+                    },
+                    "totalPages": {
+                      "type": "number",
+                      "example": 750
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "number",
                             "example": 1
+                          },
+                          "superheroName": {
+                            "type": "string",
+                            "example": "3-D Man"
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "example": "Charles Chandler"
+                          },
+                          "heightCm": {
+                            "type": "number",
+                            "example": 188
+                          },
+                          "weightKg": {
+                            "type": "number",
+                            "example": 90
                           },
                           "gender": {
-                            "type": "string",
-                            "example": "Male"
-                          }
-                        }
-                      },
-                      "eyeColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "gender": {
+                                "type": "string",
+                                "example": "Male"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "No Colour"
-                          }
-                        }
-                      },
-                      "hairColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
+                          "eyeColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 9
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "Brown"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "Amber"
-                          }
-                        }
-                      },
-                      "skinColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 3
+                          "hairColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 13
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "Grey"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "Auburn"
-                          }
-                        }
-                      },
-                      "race": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                          "skinColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "No Colour"
+                              }
+                            }
                           },
                           "race": {
-                            "type": "string",
-                            "example": "-"
-                          }
-                        }
-                      },
-                      "publisher": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "race": {
+                                "type": "string",
+                                "example": "-"
+                              }
+                            }
                           },
                           "publisher": {
-                            "type": "string",
-                            "example": ""
-                          }
-                        }
-                      },
-                      "alignment": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 13
+                              },
+                              "publisher": {
+                                "type": "string",
+                                "example": "Marvel Comics"
+                              }
+                            }
                           },
                           "alignment": {
-                            "type": "string",
-                            "example": "Good"
-                          }
-                        }
-                      },
-                      "heroAttributes": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number",
-                              "example": 3741
-                            },
-                            "attributeValue": {
-                              "type": "number",
-                              "example": 50
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "alignment": {
+                                "type": "string",
+                                "example": "Good"
+                              }
                             }
-                          }
-                        }
-                      },
-                      "superpowers": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number",
-                              "example": 2
-                            },
-                            "powerName": {
-                              "type": "string",
-                              "example": "Accelerated Healing"
+                          },
+                          "heroAttributes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 3116
+                                },
+                                "attributeValue": {
+                                  "type": "number",
+                                  "example": 45
+                                },
+                                "attribute": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "number",
+                                      "example": 6
+                                    },
+                                    "attributeName": {
+                                      "type": "string",
+                                      "example": "Combat"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "superpowers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 31
+                                },
+                                "powerName": {
+                                  "type": "string",
+                                  "example": "Super Speed"
+                                }
+                              }
                             }
                           }
                         }
@@ -4266,149 +4368,179 @@
               },
               "application/xml": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 10
-                      },
-                      "superheroName": {
-                        "type": "string",
-                        "example": "NovoHeroName"
-                      },
-                      "fullName": {
-                        "type": "string",
-                        "example": "NovoHeroFullName"
-                      },
-                      "heightCm": {
-                        "type": "number",
-                        "example": 100
-                      },
-                      "weightKg": {
-                        "type": "number",
-                        "example": 50
-                      },
-                      "gender": {
+                  "type": "object",
+                  "properties": {
+                    "currentPage": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "totalItems": {
+                      "type": "number",
+                      "example": 750
+                    },
+                    "totalPages": {
+                      "type": "number",
+                      "example": 750
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "number",
                             "example": 1
+                          },
+                          "superheroName": {
+                            "type": "string",
+                            "example": "3-D Man"
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "example": "Charles Chandler"
+                          },
+                          "heightCm": {
+                            "type": "number",
+                            "example": 188
+                          },
+                          "weightKg": {
+                            "type": "number",
+                            "example": 90
                           },
                           "gender": {
-                            "type": "string",
-                            "example": "Male"
-                          }
-                        }
-                      },
-                      "eyeColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "gender": {
+                                "type": "string",
+                                "example": "Male"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "No Colour"
-                          }
-                        }
-                      },
-                      "hairColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
+                          "eyeColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 9
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "Brown"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "Amber"
-                          }
-                        }
-                      },
-                      "skinColour": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 3
+                          "hairColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 13
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "Grey"
+                              }
+                            }
                           },
-                          "colour": {
-                            "type": "string",
-                            "example": "Auburn"
-                          }
-                        }
-                      },
-                      "race": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                          "skinColour": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "colour": {
+                                "type": "string",
+                                "example": "No Colour"
+                              }
+                            }
                           },
                           "race": {
-                            "type": "string",
-                            "example": "-"
-                          }
-                        }
-                      },
-                      "publisher": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "race": {
+                                "type": "string",
+                                "example": "-"
+                              }
+                            }
                           },
                           "publisher": {
-                            "type": "string",
-                            "example": ""
-                          }
-                        }
-                      },
-                      "alignment": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 13
+                              },
+                              "publisher": {
+                                "type": "string",
+                                "example": "Marvel Comics"
+                              }
+                            }
                           },
                           "alignment": {
-                            "type": "string",
-                            "example": "Good"
-                          }
-                        }
-                      },
-                      "heroAttributes": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number",
-                              "example": 3741
-                            },
-                            "attributeValue": {
-                              "type": "number",
-                              "example": 50
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number",
+                                "example": 1
+                              },
+                              "alignment": {
+                                "type": "string",
+                                "example": "Good"
+                              }
                             }
-                          }
-                        }
-                      },
-                      "superpowers": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number",
-                              "example": 2
-                            },
-                            "powerName": {
-                              "type": "string",
-                              "example": "Accelerated Healing"
+                          },
+                          "heroAttributes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 3116
+                                },
+                                "attributeValue": {
+                                  "type": "number",
+                                  "example": 45
+                                },
+                                "attribute": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "number",
+                                      "example": 6
+                                    },
+                                    "attributeName": {
+                                      "type": "string",
+                                      "example": "Combat"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "superpowers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 31
+                                },
+                                "powerName": {
+                                  "type": "string",
+                                  "example": "Super Speed"
+                                }
+                              }
                             }
                           }
                         }

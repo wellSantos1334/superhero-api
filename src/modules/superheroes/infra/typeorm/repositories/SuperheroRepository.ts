@@ -1,4 +1,9 @@
 import { injectable } from 'tsyringe';
+import {
+  FindOptionsOrder,
+  FindOptionsOrderValue,
+  FindOptionsWhere,
+} from 'typeorm';
 
 import { Superhero } from '../entities/Superhero';
 import type {
@@ -6,6 +11,8 @@ import type {
   SuperheroUpdateInput,
   ISuperheroRepository,
 } from '../../../repositories/ISuperheroRepository';
+import { GetOrderSuperhero } from '../../../dtos/superhero/GetOrderSuperheroDTO';
+import { GetFilterSuperhero } from '../../../dtos/superhero/GetFilterSuperheroDTO';
 
 import { AppDataSource } from '@/shared/infra/typeorm';
 import { AbstractTransactionRepository } from '@/shared/container/providers/transaction-manager/AbstractTransactionRepository';
@@ -44,8 +51,56 @@ export class SuperheroRepository
     });
   }
 
-  async getAll() {
-    return await this.superheroRepository.find({
+  async getAll(
+    page: number,
+    size: number,
+    orderData: GetOrderSuperhero,
+    filter: GetFilterSuperhero,
+  ) {
+    const order: FindOptionsOrder<Superhero> = {};
+    const where: FindOptionsWhere<Superhero> = {};
+    const offset = (Number(page) - 1) * size;
+
+    if (filter.attributeName) {
+      where.heroAttributes = {
+        attribute: {
+          attributeName: filter.attributeName,
+        },
+      };
+    }
+
+    if (filter.alignment) {
+      where.alignment = {
+        alignment: filter.alignment,
+      };
+    }
+
+    if (filter.powerName) {
+      where.superpowers = {
+        powerName: filter.powerName,
+      };
+    }
+
+    if (filter.publisher) {
+      where.publisher = {
+        publisher: filter.publisher,
+      };
+    }
+
+    if (orderData.attributeValue) {
+      order.heroAttributes = {
+        attributeValue: orderData.attributeValue as FindOptionsOrderValue,
+      };
+    }
+
+    if (orderData.powerId) {
+      order.superpowers = {
+        id: orderData.powerId as FindOptionsOrderValue,
+      };
+    }
+
+    const [result, total] = await this.superheroRepository.findAndCount({
+      where,
       relations: {
         gender: true,
         eyeColour: true,
@@ -54,10 +109,24 @@ export class SuperheroRepository
         race: true,
         publisher: true,
         alignment: true,
-        heroAttributes: true,
+        heroAttributes: {
+          attribute: true,
+        },
         superpowers: true,
       },
+      order,
+      take: size,
+      skip: offset,
     });
+
+    const totalPages = Math.ceil(total / size);
+
+    return {
+      currentPage: Number(page),
+      totalItems: total,
+      totalPages,
+      content: result,
+    };
   }
 
   async update(data: SuperheroUpdateInput) {

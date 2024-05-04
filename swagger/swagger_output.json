@@ -1047,6 +1047,2595 @@
           }
         }
       }
+    },
+    "/api/superpower/": {
+      "post": {
+        "tags": [
+          "Superpower"
+        ],
+        "summary": "Adiciona um novo Superpower ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "powerName": {
+                  "type": "string",
+                  "example": "NovoPowerName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "powerName": {
+                      "type": "string",
+                      "example": "NovoPowerName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 168
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "powerName": {
+                      "type": "string",
+                      "example": "NovoPowerName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 168
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Superpower"
+        ],
+        "summary": "Busca todos os Superpowers",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 168
+                      },
+                      "powerName": {
+                        "type": "string",
+                        "example": "NovoPowerName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 168
+                      },
+                      "powerName": {
+                        "type": "string",
+                        "example": "NovoPowerName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/superpower/{id}": {
+      "get": {
+        "tags": [
+          "Superpower"
+        ],
+        "summary": "Busca um Superpower pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superpower"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 168
+                    },
+                    "powerName": {
+                      "type": "string",
+                      "example": "NovoPowerName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 168
+                    },
+                    "powerName": {
+                      "type": "string",
+                      "example": "NovoPowerName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Superpower"
+        ],
+        "summary": "Atualiza um Superpower existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superpower"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "powerName": {
+                  "type": "string",
+                  "example": "PowerNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superpower updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superpower updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Superpower"
+        ],
+        "summary": "Deleta um Superpower pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Superpower"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superpower deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Superpower deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/alignment/": {
+      "post": {
+        "tags": [
+          "Alignment"
+        ],
+        "summary": "Adiciona um novo Alignment ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alignment": {
+                  "type": "string",
+                  "example": "AlignmentName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alignment": {
+                      "type": "string",
+                      "example": "AlignmentName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alignment": {
+                      "type": "string",
+                      "example": "AlignmentName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Alignment"
+        ],
+        "summary": "Busca todos os Alignments",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 5
+                      },
+                      "alignment": {
+                        "type": "string",
+                        "example": "AlignmentName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 5
+                      },
+                      "alignment": {
+                        "type": "string",
+                        "example": "AlignmentName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/alignment/{id}": {
+      "get": {
+        "tags": [
+          "Alignment"
+        ],
+        "summary": "Busca um Alignment pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Alignment"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 5
+                    },
+                    "alignment": {
+                      "type": "string",
+                      "example": "AlignmentName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 5
+                    },
+                    "alignment": {
+                      "type": "string",
+                      "example": "AlignmentName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Alignment"
+        ],
+        "summary": "Atualiza um Alignment existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Alignment"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alignment": {
+                  "type": "string",
+                  "example": "AlignmentNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Alignment updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Alignment updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Alignment"
+        ],
+        "summary": "Deleta um Alignment pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Alignment"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Alignment deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Alignment deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gender/": {
+      "post": {
+        "tags": [
+          "Gender"
+        ],
+        "summary": "Adiciona um novo Gender ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "gender": {
+                  "type": "string",
+                  "example": "GenderName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gender": {
+                      "type": "string",
+                      "example": "GenderName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 4
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gender": {
+                      "type": "string",
+                      "example": "GenderName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 4
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Gender"
+        ],
+        "summary": "Busca todos os Genders",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 4
+                      },
+                      "gender": {
+                        "type": "string",
+                        "example": "GenderName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 4
+                      },
+                      "gender": {
+                        "type": "string",
+                        "example": "GenderName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gender/{id}": {
+      "get": {
+        "tags": [
+          "Gender"
+        ],
+        "summary": "Busca um Gender pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Gender"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 4
+                    },
+                    "gender": {
+                      "type": "string",
+                      "example": "GenderName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 4
+                    },
+                    "gender": {
+                      "type": "string",
+                      "example": "GenderName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Gender"
+        ],
+        "summary": "Atualiza um Gender existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Gender"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "gender": {
+                  "type": "string",
+                  "example": "GenderNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Gender updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Gender updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gender"
+        ],
+        "summary": "Deleta um Gender pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Gender"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Gender deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Gender deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/colour/": {
+      "post": {
+        "tags": [
+          "Colour"
+        ],
+        "summary": "Adiciona um novo Colour ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colour": {
+                  "type": "string",
+                  "example": "ColourName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "colour": {
+                      "type": "string",
+                      "example": "ColourName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 36
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "colour": {
+                      "type": "string",
+                      "example": "ColourName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 36
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Colour"
+        ],
+        "summary": "Busca todos os Colours",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 36
+                      },
+                      "colour": {
+                        "type": "string",
+                        "example": "ColourName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 36
+                      },
+                      "colour": {
+                        "type": "string",
+                        "example": "ColourName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/colour/{id}": {
+      "get": {
+        "tags": [
+          "Colour"
+        ],
+        "summary": "Busca um Colour pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Colour"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 36
+                    },
+                    "colour": {
+                      "type": "string",
+                      "example": "ColourName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 36
+                    },
+                    "colour": {
+                      "type": "string",
+                      "example": "ColourName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Colour"
+        ],
+        "summary": "Atualiza um Colour existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Colour"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colour": {
+                  "type": "string",
+                  "example": "ColourNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Colour updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Colour updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Colour"
+        ],
+        "summary": "Deleta um Colour pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Colour"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Colour deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Colour deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/race/": {
+      "post": {
+        "tags": [
+          "Race"
+        ],
+        "summary": "Adiciona um novo Race ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "race": {
+                  "type": "string",
+                  "example": "RaceName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "race": {
+                      "type": "string",
+                      "example": "RaceName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 62
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "race": {
+                      "type": "string",
+                      "example": "RaceName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 62
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Race"
+        ],
+        "summary": "Busca todos os Races",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "race": {
+                        "type": "string",
+                        "example": "RaceName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "race": {
+                        "type": "string",
+                        "example": "RaceName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/race/{id}": {
+      "get": {
+        "tags": [
+          "Race"
+        ],
+        "summary": "Busca um Race pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Race"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 62
+                    },
+                    "race": {
+                      "type": "string",
+                      "example": "RaceName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 62
+                    },
+                    "race": {
+                      "type": "string",
+                      "example": "RaceName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Race"
+        ],
+        "summary": "Atualiza um Race existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Race"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "race": {
+                  "type": "string",
+                  "example": "RaceNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Race updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Race updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Race"
+        ],
+        "summary": "Deleta um Race pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Race"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Race deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Race deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publisher/": {
+      "post": {
+        "tags": [
+          "Publisher"
+        ],
+        "summary": "Adiciona um novo Publisher ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "publisher": {
+                  "type": "string",
+                  "example": "PublisherName"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "publisher": {
+                      "type": "string",
+                      "example": "PublisherName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 26
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "publisher": {
+                      "type": "string",
+                      "example": "PublisherName"
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 26
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Publisher"
+        ],
+        "summary": "Busca todos os Publishers",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "publisher": {
+                        "type": "string",
+                        "example": "PublisherName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "publisher": {
+                        "type": "string",
+                        "example": "PublisherName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publisher/{id}": {
+      "get": {
+        "tags": [
+          "Publisher"
+        ],
+        "summary": "Busca um Publisher pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Publisher"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 26
+                    },
+                    "publisher": {
+                      "type": "string",
+                      "example": "PublisherName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 26
+                    },
+                    "publisher": {
+                      "type": "string",
+                      "example": "PublisherName"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Publisher"
+        ],
+        "summary": "Atualiza um Publisher existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Publisher"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "publisher": {
+                  "type": "string",
+                  "example": "PublisherNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Publisher updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Publisher updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Publisher"
+        ],
+        "summary": "Deleta um Publisher pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do Publisher"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Publisher deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Publisher deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/hero-attribute/": {
+      "post": {
+        "tags": [
+          "HeroAttribute"
+        ],
+        "summary": "Adiciona um novo HeroAttribute ao sistema",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "attributeValue": {
+                  "type": "number",
+                  "example": 30
+                },
+                "superhero": {
+                  "type": "number",
+                  "example": 1
+                },
+                "attribute": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attributeValue": {
+                      "type": "number",
+                      "example": 30
+                    },
+                    "superhero": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "superheroName": {
+                          "type": "string",
+                          "example": "3-D Man"
+                        },
+                        "fullName": {
+                          "type": "string",
+                          "example": "Charles Chandler"
+                        },
+                        "heightCm": {
+                          "type": "number",
+                          "example": 188
+                        },
+                        "weightKg": {
+                          "type": "number",
+                          "example": 90
+                        }
+                      }
+                    },
+                    "attribute": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "attributeName": {
+                          "type": "string",
+                          "example": "Intelligence"
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 3739
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attributeValue": {
+                      "type": "number",
+                      "example": 30
+                    },
+                    "superhero": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "superheroName": {
+                          "type": "string",
+                          "example": "3-D Man"
+                        },
+                        "fullName": {
+                          "type": "string",
+                          "example": "Charles Chandler"
+                        },
+                        "heightCm": {
+                          "type": "number",
+                          "example": 188
+                        },
+                        "weightKg": {
+                          "type": "number",
+                          "example": 90
+                        }
+                      }
+                    },
+                    "attribute": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "attributeName": {
+                          "type": "string",
+                          "example": "Intelligence"
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "number",
+                      "example": 3739
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "HeroAttribute"
+        ],
+        "summary": "Busca todos os HeroAttributes",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "heroAttribute": {
+                        "type": "string",
+                        "example": "HeroAttributeName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 62
+                      },
+                      "heroAttribute": {
+                        "type": "string",
+                        "example": "HeroAttributeName"
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/hero-attribute/{id}": {
+      "get": {
+        "tags": [
+          "HeroAttribute"
+        ],
+        "summary": "Busca um HeroAttribute pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do HeroAttribute"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 3739
+                    },
+                    "attributeValue": {
+                      "type": "number",
+                      "example": 30
+                    },
+                    "superhero": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "superheroName": {
+                          "type": "string",
+                          "example": "3-D Man"
+                        },
+                        "fullName": {
+                          "type": "string",
+                          "example": "Charles Chandler"
+                        },
+                        "heightCm": {
+                          "type": "number",
+                          "example": 188
+                        },
+                        "weightKg": {
+                          "type": "number",
+                          "example": 90
+                        }
+                      }
+                    },
+                    "attribute": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "attributeName": {
+                          "type": "string",
+                          "example": "Intelligence"
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 3739
+                    },
+                    "attributeValue": {
+                      "type": "number",
+                      "example": 30
+                    },
+                    "superhero": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "superheroName": {
+                          "type": "string",
+                          "example": "3-D Man"
+                        },
+                        "fullName": {
+                          "type": "string",
+                          "example": "Charles Chandler"
+                        },
+                        "heightCm": {
+                          "type": "number",
+                          "example": 188
+                        },
+                        "weightKg": {
+                          "type": "number",
+                          "example": 90
+                        }
+                      }
+                    },
+                    "attribute": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "attributeName": {
+                          "type": "string",
+                          "example": "Intelligence"
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "HeroAttribute"
+        ],
+        "summary": "Atualiza um HeroAttribute existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do HeroAttribute"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "heroAttribute": {
+                  "type": "string",
+                  "example": "HeroAttributeNameAtualizado"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "HeroAttribute updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "HeroAttribute updated successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HeroAttribute"
+        ],
+        "summary": "Deleta um HeroAttribute pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID do HeroAttribute"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "HeroAttribute deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "HeroAttribute deleted successfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {

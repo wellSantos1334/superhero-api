@@ -16,6 +16,10 @@ import { RaceRepository } from '../../modules/superheroes/infra/typeorm/reposito
 import { IRaceRepository } from '../../modules/superheroes/repositories/IRaceRepository';
 import { PublisherRepository } from '../../modules/superheroes/infra/typeorm/repositories/PublisherRepository';
 import { IPublisherRepository } from '../../modules/superheroes/repositories/IPublisherRepository';
+import { HeroAttributeRepository } from '../../modules/superheroes/infra/typeorm/repositories/HeroAttributeRepository';
+import { IHeroAttributeRepository } from '../../modules/superheroes/repositories/IHeroAttributeRepository';
+import { SuperheroRepository } from '../../modules/superheroes/infra/typeorm/repositories/SuperheroRepository';
+import { ISuperheroRepository } from '../../modules/superheroes/repositories/ISuperheroRepository';
 
 container.register<IUserRepository>('UserRepository', UserRepository);
 container.register<IAttributeRepository>(
@@ -36,4 +40,12 @@ container.register<IRaceRepository>('RaceRepository', RaceRepository);
 container.register<IPublisherRepository>(
   'PublisherRepository',
   PublisherRepository,
+);
+container.register<IHeroAttributeRepository>(
+  'HeroAttributeRepository',
+  HeroAttributeRepository,
+);
+container.register<ISuperheroRepository>(
+  'SuperheroRepository',
+  SuperheroRepository,
 );

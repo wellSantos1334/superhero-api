@@ -701,6 +701,59 @@
         }
       }
     },
+    "/api/login/logout": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Realiza o logout de um usuário e adiciona seu token na blacklist",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Logout sucessfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Logout sucessfully"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/attribute/": {
       "post": {
         "tags": [
@@ -5116,8 +5169,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Criado",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {

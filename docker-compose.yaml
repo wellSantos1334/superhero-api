@@ -23,6 +23,7 @@ services:
     depends_on:
       - db
       - mongo
+      - redis
     command: sh -c "npm i && npm run migration:run && npm run seed && npm run swagger-autogen && npm run dev"
   
   db:
@@ -43,6 +44,11 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=mongoPass
     ports:
       - "27018:27017"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
 
 volumes:
   db:

@@ -9,8 +9,13 @@ import { connectMongo } from '../mongo';
 import { ErrorRequestHandler } from '../../errors/error-handler';
 import swaggerFile from '../../../../swagger/swagger_output.json';
 import { logger } from '../../container/providers/logger';
+import { redisConnect } from '../redis';
 
 import { router } from './routes/router';
+
+redisConnect()
+  .then(() => logger.info('🌳 Redis Connected'))
+  .catch((error) => logger.error(`⛔ Erro ao conectar Redis: ${error}`));
 
 connectMongo()
   .then(() => logger.info('🌳 Mongo Connected'))

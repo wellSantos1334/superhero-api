@@ -42,7 +42,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=mongoUser
       - MONGO_INITDB_ROOT_PASSWORD=mongoPass
     ports:
-      - "27018:27018"
+      - "27018:27017"
 
 volumes:
   db:

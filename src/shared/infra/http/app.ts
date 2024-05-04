@@ -5,10 +5,16 @@ import swaggerUi from 'swagger-ui-express';
 import '../typeorm';
 import '../../container';
 
+import { connectMongo } from '../mongo';
 import { ErrorRequestHandler } from '../../errors/error-handler';
 import swaggerFile from '../../../../swagger/swagger_output.json';
+import { logger } from '../../container/providers/logger';
 
 import { router } from './routes/router';
+
+connectMongo()
+  .then(() => logger.info('🌳 Mongo Connected'))
+  .catch((error) => logger.error(`⛔ Erro ao conectar Mongo: ${error}`));
 
 const app = express();
 

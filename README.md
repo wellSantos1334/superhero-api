@@ -17,30 +17,38 @@ Nesse projeto é possível efetuar o CRUD completo de Usuário e Super-Herói, j
 * [x] Express
 
 ## Estrutura
-O projeto está estruturado em três módulos, sendo eles: users, authentication e superheroes. Dentro dos módulos, foi estruturado visando o mais fácil entendimento, separando as dtos, infra, repositórios e services.
+O projeto está estruturado em três módulos, sendo eles: 
+```
+users - authentication - superheroes.
+```
+Dentro dos módulos, foi estruturado visando o mais fácil entendimento, separando as dtos, infra, repositórios e services.
 Também foi criado uma pasta para fazer todo gerenciamento das rotas a fim de deixar o mais desaclopado possível. Todos os endpoints foram autenticados usando o middleware "isAuth", exceto o endpoint POST para criar um novo usuário.
-Foi feito a manipulação dos erros utilizando modelos já configurados dentro da pasta "shared". Por exemplo: throw new NotFound('E-mail não encontrado').
 
-## Comandos para rodar o projeto localmente
+Foi feito a manipulação dos erros utilizando modelos já configurados dentro da pasta "shared". Por exemplo: 
+```
+throw new NotFound('E-mail não encontrado').
+```
+
+## Comandos para rodar o projeto localmente (Docker)
 Para rodar o projeto em docker, é necessário rodar o seguinte comando:
 ```
 docker compose up -d
 ```
-## Banco de Dados
-Para manter o banco de dados versionado, este projeto utiliza a orm TypeORM e utiliza o modelo de migrations.
 
-Para gerar uma nova migration:
+## Comandos para rodar o projeto local manualmente
+Instalar as dependências
 ```
-npm run migration:add --name=CreateUserTable
+npm install
 ```
-
-Para reverter a última migration:
-```
-npm run migration:revert
-```
-
-Para executar a migration:
+Rodar as migrations:
 ```
 npm run migration:run
 ```
-
+Rodar as seeds (popular o banco):
+```
+npm run seed
+```
+Para executar o projeto:
+```
+npm run dev
+```

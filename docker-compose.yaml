@@ -19,11 +19,11 @@ services:
       - ./.env
     environment:
       - DB_HOST=db
-      - MONGO_HOST=mongo:27018
+      - MONGO_HOST=mongo
     depends_on:
       - db
       - mongo
-    command: sh -c "npm i && npm run migration:run && npm run swagger-autogen && npm run dev"
+    command: sh -c "npm i && npm run migration:run && npm run seed && npm run swagger-autogen && npm run dev"
   
   db:
     image: postgres

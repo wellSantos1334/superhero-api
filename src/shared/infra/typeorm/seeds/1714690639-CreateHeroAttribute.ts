@@ -8,7 +8,7 @@ export default class CreateHeroAttributeSeeder implements Seeder {
     const heroAttributeRepository = dataSource.getRepository(HeroAttribute);
 
     await heroAttributeRepository.query(
-      `INSERT INTO public.hero_attribute (hero_id, attribute_id, attribute_value) VALUES 
+      `INSERT INTO public.hero_attribute (hero_id, attribute_id, attribute_value) VALUES
       (1,1,80),
       (2,1,75),
       (3,1,95),
@@ -628,10 +628,6 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (747,1,60),
       (748,1,90),
       (749,1,95),
-      (752,1,80),
-      (753,1,80),
-      (754,1,95),
-      (756,1,80),
       (1,2,35),
       (2,2,100),
       (3,2,30),
@@ -1251,10 +1247,6 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (747,2,10),
       (748,2,25),
       (749,2,55),
-      (752,2,10),
-      (753,2,100),
-      (754,2,55),
-      (756,2,10),
       (1,3,45),
       (2,3,20),
       (3,3,35),
@@ -1874,10 +1866,6 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (747,3,15),
       (748,3,45),
       (749,3,55),
-      (752,3,35),
-      (753,3,30),
-      (754,3,35),
-      (756,3,100),
       (1,4,45),
       (2,4,20),
       (3,4,35),
@@ -2497,10 +2485,6 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (747,4,15),
       (748,4,45),
       (749,4,55),
-      (752,4,35),
-      (753,4,30),
-      (754,4,35),
-      (756,4,100),
       (1,5,45),
       (2,5,20),
       (3,5,35),
@@ -3120,10 +3104,6 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (747,5,15),
       (748,5,45),
       (749,5,55),
-      (752,5,35),
-      (753,5,30),
-      (754,5,35),
-      (756,5,100),
       (1,6,45),
       (2,6,20),
       (3,6,35),
@@ -3742,11 +3722,7 @@ export default class CreateHeroAttributeSeeder implements Seeder {
       (745,6,80),
       (747,6,15),
       (748,6,45),
-      (749,6,55),
-      (752,6,35),
-      (753,6,30),
-      (754,6,35),
-      (756,6,100)
+      (749,6,55)
     `,
     );
   }

@@ -23,7 +23,9 @@ export class HeroAttribute {
   @JoinColumn({ name: 'hero_id' })
   superhero: Superhero;
 
-  @ManyToOne(() => Attribute, (attribute) => attribute.heroAttributes)
+  @ManyToOne(() => Attribute, (attribute) => attribute.heroAttributes, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'attribute_id' })
   attribute: Attribute;
 }

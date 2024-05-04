@@ -39,7 +39,6 @@ AuthenticationRouter.post(
   authenticationController.logout,
   /*  #swagger.tags = ['Authentication']
       #swagger.summary = 'Realiza o logout de um usuário e adiciona seu token na blacklist'
-      }
       #swagger.responses[200] = {
         schema: {
           "message": "Logout sucessfully"

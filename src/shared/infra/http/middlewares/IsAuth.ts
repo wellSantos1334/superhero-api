@@ -3,8 +3,8 @@ import { verify } from 'jsonwebtoken';
 import { container } from 'tsyringe';
 
 import Unauthorized from '../../../errors/unauthorized';
-import { FindByIdUserService } from '../../../../modules/users/services/FindByIdUserService';
 import { BlacklistService } from '../../../../modules/authentication/services/blackList';
+import { FindByIdAndActiveUserService } from '../../../../modules/users/services/FindByIdAndActiveUserService';
 
 export async function isAuth(
   request: Request,
@@ -28,9 +28,11 @@ export async function isAuth(
       throw new Unauthorized('Invalid token');
     }
 
-    const findByIdUserService = container.resolve(FindByIdUserService);
+    const findByIdAndActiveUserService = container.resolve(
+      FindByIdAndActiveUserService,
+    );
 
-    await findByIdUserService.execute(sub as string);
+    await findByIdAndActiveUserService.execute(sub as string);
 
     response.locals = {
       userId: sub,

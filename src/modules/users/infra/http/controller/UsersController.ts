@@ -7,6 +7,8 @@ import { GetAllUserService } from '../../../services/GetAllUserService';
 import { UpdateUserDTO } from '../../../dtos/UpdateUserDTO';
 import { UpdateUserService } from '../../../services/UpdateUserService';
 import { DeleteUserService } from '../../../services/DeleteUserService';
+import { ActiveUserDTO } from '../../../dtos/ActiveUserDTO';
+import { ActiveUserService } from '../../../services/ActiveUserService';
 
 import { container } from '@/shared/container/providers/transaction-manager/ContainerResolveTransaction';
 
@@ -72,5 +74,20 @@ export class UsersController {
     await deleteUserService.execute(id, userId);
 
     return response.status(200).json('User deleted successfully');
+  }
+
+  async activeUser(request: Request, response: Response) {
+    const requestValidated = new ActiveUserDTO({
+      ...request.params,
+      ...request.body,
+    });
+
+    const { userId } = response.locals;
+
+    const activeUserService = container.resolve(ActiveUserService);
+
+    await activeUserService.execute(requestValidated.getAll(), userId);
+
+    return response.status(200).json('Active status updated successfully');
   }
 }

@@ -42,6 +42,7 @@ export class CreateUserService {
     const createdUser = await this.userRepository.create({
       ...data,
       profilePhoto: profilePhoto?.filename ?? '',
+      active: true,
     });
 
     await addAudit({

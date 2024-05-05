@@ -8,6 +8,7 @@ import type {
   UserUpdateInput,
   UserUpdatePasswordInput,
 } from '../../../repositories/IUserRepository';
+import { ActiveUser } from '../../../dtos/ActiveUserDTO';
 
 import { AppDataSource } from '@/shared/infra/typeorm';
 import { hashPassword } from '@/shared/util/Password';
@@ -35,6 +36,15 @@ export class UserRepository
 
   async findById(id: string) {
     return await this.userRepository.findOne({ where: { id } });
+  }
+
+  async findByIdAndActive(id: string) {
+    return await this.userRepository.findOne({
+      where: {
+        id,
+        active: true,
+      },
+    });
   }
 
   async findByEmail(email: string) {
@@ -71,19 +81,23 @@ export class UserRepository
 
   async userLoginByEmail(email: string) {
     return await this.userRepository.findOne({
-      where: { email },
+      where: { email, active: true },
       select: ['id', 'email', 'cpf', 'name', 'password'],
     });
   }
 
   async userLoginByCpf(cpf: string): Promise<User | null> {
     return await this.userRepository.findOne({
-      where: { cpf },
+      where: { cpf, active: true },
       select: ['id', 'email', 'cpf', 'name', 'password'],
     });
   }
 
   async delete(id: string) {
     await this.userRepository.delete(id);
+  }
+
+  async active(data: ActiveUser) {
+    await this.userRepository.update({ id: data.id }, { active: data.active });
   }
 }

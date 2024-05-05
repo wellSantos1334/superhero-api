@@ -55,6 +55,7 @@ export class UpdateUserService {
       email: data.email,
       biography: data.biography,
       profilePhoto: profilePhoto?.filename ?? '',
+      active: user.active,
     });
 
     await addAudit({

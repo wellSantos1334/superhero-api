@@ -15,6 +15,7 @@ export default class UserSeeder implements Seeder {
       email: 'email@teste.com',
       biography: 'biography description',
       password: hashPassword('123123@Ssr'),
+      active: true,
     });
   }
 }

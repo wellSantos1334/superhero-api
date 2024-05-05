@@ -198,4 +198,35 @@ UsersRouter.delete(
   */
 );
 
+UsersRouter.patch(
+  '/:id',
+  isAuth,
+  usersController.activeUser,
+  /*  
+    #swagger.tags = ['Users']
+    #swagger.summary = 'Ativa ou Inativa um User pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.parameters['id'] = {
+      in: 'path',
+      type: 'string',
+      description: 'ID do usuário',
+      required: true
+    }
+    #swagger.parameters['body'] = {
+      in: 'body',
+      type: 'boolean',
+      description: 'true ou false',
+      required: true,
+      schema: {
+        "active": true
+      }
+    }
+    #swagger.responses[200] = {
+      schema: {
+        message: "Active status updated successfully"
+      }
+    }
+  */
+);
+
 export { UsersRouter };

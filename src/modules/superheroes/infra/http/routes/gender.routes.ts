@@ -36,6 +36,7 @@ GenderRouter.get(
   /*  
     #swagger.tags = ['Gender']
     #swagger.summary = 'Busca um Gender pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ GenderRouter.get(
   /*  
     #swagger.tags = ['Gender']
     #swagger.summary = 'Busca todos os Genders'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ GenderRouter.put(
   /*  
     #swagger.tags = ['Gender']
     #swagger.summary = 'Atualiza um Gender existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ GenderRouter.delete(
   /*  
     #swagger.tags = ['Gender']
     #swagger.summary = 'Deleta um Gender pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

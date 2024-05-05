@@ -36,6 +36,7 @@ ColourRouter.get(
   /*  
     #swagger.tags = ['Colour']
     #swagger.summary = 'Busca um Colour pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ ColourRouter.get(
   /*  
     #swagger.tags = ['Colour']
     #swagger.summary = 'Busca todos os Colours'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ ColourRouter.put(
   /*  
     #swagger.tags = ['Colour']
     #swagger.summary = 'Atualiza um Colour existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ ColourRouter.delete(
   /*  
     #swagger.tags = ['Colour']
     #swagger.summary = 'Deleta um Colour pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

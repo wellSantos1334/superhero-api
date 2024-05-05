@@ -36,6 +36,7 @@ PublisherRouter.get(
   /*  
     #swagger.tags = ['Publisher']
     #swagger.summary = 'Busca um Publisher pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ PublisherRouter.get(
   /*  
     #swagger.tags = ['Publisher']
     #swagger.summary = 'Busca todos os Publishers'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ PublisherRouter.put(
   /*  
     #swagger.tags = ['Publisher']
     #swagger.summary = 'Atualiza um Publisher existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ PublisherRouter.delete(
   /*  
     #swagger.tags = ['Publisher']
     #swagger.summary = 'Deleta um Publisher pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

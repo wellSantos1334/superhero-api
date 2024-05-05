@@ -36,6 +36,7 @@ SuperpowerRouter.get(
   /*  
     #swagger.tags = ['Superpower']
     #swagger.summary = 'Busca um Superpower pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ SuperpowerRouter.get(
   /*  
     #swagger.tags = ['Superpower']
     #swagger.summary = 'Busca todos os Superpowers'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ SuperpowerRouter.put(
   /*  
     #swagger.tags = ['Superpower']
     #swagger.summary = 'Atualiza um Superpower existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ SuperpowerRouter.delete(
   /*  
     #swagger.tags = ['Superpower']
     #swagger.summary = 'Deleta um Superpower pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

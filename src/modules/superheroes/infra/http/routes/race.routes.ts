@@ -36,6 +36,7 @@ RaceRouter.get(
   /*  
     #swagger.tags = ['Race']
     #swagger.summary = 'Busca um Race pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ RaceRouter.get(
   /*  
     #swagger.tags = ['Race']
     #swagger.summary = 'Busca todos os Races'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ RaceRouter.put(
   /*  
     #swagger.tags = ['Race']
     #swagger.summary = 'Atualiza um Race existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ RaceRouter.delete(
   /*  
     #swagger.tags = ['Race']
     #swagger.summary = 'Deleta um Race pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

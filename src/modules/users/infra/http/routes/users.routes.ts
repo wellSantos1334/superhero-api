@@ -26,6 +26,12 @@ UsersRouter.post(
     description: 'Endereço de e-mail do usuário',
     required: true
     }
+    #swagger.parameters['cpf'] = {
+    in: 'formData',
+    type: 'string',
+    description: 'CPF do usuário',
+    required: true
+    }
     #swagger.parameters['password'] = {
       in: 'formData',
       type: 'string',
@@ -72,6 +78,7 @@ UsersRouter.get(
   /*  
     #swagger.tags = ['Users']
     #swagger.summary = 'Busca um User pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'string',
@@ -100,6 +107,7 @@ UsersRouter.get(
   /*  
     #swagger.tags = ['Users']
     #swagger.summary = 'Busca todos os User'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: {
         "cpf": "12220030040",
@@ -123,6 +131,7 @@ UsersRouter.put(
   /*  
     #swagger.tags = ['Users']
     #swagger.summary = 'Adiciona um novo User ao sistema'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['name'] = {
       in: 'formData',
       type: 'string',
@@ -174,6 +183,7 @@ UsersRouter.delete(
   /*  
     #swagger.tags = ['Users']
     #swagger.summary = 'Deleta um User pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'string',

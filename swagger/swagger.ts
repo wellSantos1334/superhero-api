@@ -9,8 +9,8 @@ const doc = {
     title: 'API',
     description: 'Documentação referente aos endpoints do sistema ...',
   },
-  host: 'localhost:5555',
   schemes: ['http', 'https'],
+  host: 'localhost:5555',
   securityDefinitions: {
     bearerAuth: {
       type: 'apiKey',
@@ -31,8 +31,4 @@ const doc = {
   ],
 };
 
-swaggerAutogen({ openapi: '3.0.0', language: 'pt-BR' })(
-  outputFile,
-  endpointsFiles,
-  doc,
-);
+swaggerAutogen(outputFile, endpointsFiles, doc);

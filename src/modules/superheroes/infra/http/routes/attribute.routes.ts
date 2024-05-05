@@ -36,6 +36,7 @@ AttributeRouter.get(
   /*  
     #swagger.tags = ['Attribute']
     #swagger.summary = 'Busca um Attribute pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ AttributeRouter.get(
   /*  
     #swagger.tags = ['Attribute']
     #swagger.summary = 'Busca todos os Attributes'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ AttributeRouter.put(
   /*  
     #swagger.tags = ['Attribute']
     #swagger.summary = 'Atualiza um Attribute existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ AttributeRouter.delete(
   /*  
     #swagger.tags = ['Attribute']
     #swagger.summary = 'Deleta um Attribute pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

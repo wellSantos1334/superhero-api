@@ -36,6 +36,7 @@ AlignmentRouter.get(
   /*  
     #swagger.tags = ['Alignment']
     #swagger.summary = 'Busca um Alignment pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -58,6 +59,7 @@ AlignmentRouter.get(
   /*  
     #swagger.tags = ['Alignment']
     #swagger.summary = 'Busca todos os Alignments'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -76,6 +78,7 @@ AlignmentRouter.put(
   /*  
     #swagger.tags = ['Alignment']
     #swagger.summary = 'Atualiza um Alignment existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -103,6 +106,7 @@ AlignmentRouter.delete(
   /*  
     #swagger.tags = ['Alignment']
     #swagger.summary = 'Deleta um Alignment pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

@@ -14,19 +14,19 @@ AuthenticationRouter.post(
       #swagger.parameters['body'] = {
         in: 'body',
         schema: {
-          "email": "email@gmail.com",
-          "cpf": "12250060030",
-          "password": "password"
+          "email": "email@teste.com",
+          "cpf": "12250060040",
+          "password": "123123@Ssr"
         }
       }
       #swagger.responses[200] = {
         schema: {
           "token": "eyJhbGciOiJIUzI1NiIsInR5cC",
           "user": {
-            "cpf": "12250060030",
-            "userId": "2a41a504-1f97-4a96-814d-244033089610",
-            "name": "Usuario",
-            "email": "email@gmail.com",
+            "cpf": "12250060040",
+            "userId": "a606d75b-2cc4-451a-85ed-9a31fe5b8bd4",
+            "name": "userName",
+            "email": "email@teste.com",
           }
         }
       }

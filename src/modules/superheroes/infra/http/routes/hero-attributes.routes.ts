@@ -49,6 +49,7 @@ HeroAttributeRouter.get(
   /*  
     #swagger.tags = ['HeroAttribute']
     #swagger.summary = 'Busca um HeroAttribute pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -82,6 +83,7 @@ HeroAttributeRouter.get(
   /*  
     #swagger.tags = ['HeroAttribute']
     #swagger.summary = 'Busca todos os HeroAttributes'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.responses[200] = {
       schema: [
         {
@@ -111,6 +113,7 @@ HeroAttributeRouter.put(
   /*  
     #swagger.tags = ['HeroAttribute']
     #swagger.summary = 'Atualiza um HeroAttribute existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -140,6 +143,7 @@ HeroAttributeRouter.delete(
   /*  
     #swagger.tags = ['HeroAttribute']
     #swagger.summary = 'Deleta um HeroAttribute pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

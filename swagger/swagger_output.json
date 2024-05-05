@@ -1,18 +1,12 @@
 {
-  "openapi": "3.0.0",
+  "swagger": "2.0",
   "info": {
     "version": "1.0.0",
     "title": "API",
     "description": "Documentação referente aos endpoints do sistema ..."
   },
-  "servers": [
-    {
-      "url": "http://localhost:5555/"
-    },
-    {
-      "url": "https://localhost:5555/"
-    }
-  ],
+  "host": "localhost:5555",
+  "basePath": "/",
   "tags": [
     {
       "name": "Authentication",
@@ -23,6 +17,18 @@
       "description": "Relaciona os endpoints referentes ao usuário"
     }
   ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Digite Bearer + o token que você possui"
+    }
+  },
   "paths": {
     "/api/": {
       "get": {
@@ -49,147 +55,96 @@
           {
             "name": "name",
             "in": "formData",
+            "type": "string",
             "description": "Nome do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "email",
             "in": "formData",
+            "type": "string",
             "description": "Endereço de e-mail do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
+          },
+          {
+            "name": "cpf",
+            "in": "formData",
+            "type": "string",
+            "description": "CPF do usuário",
+            "required": true
           },
           {
             "name": "password",
             "in": "formData",
+            "type": "string",
             "description": "Senha do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "confirmPassword",
             "in": "formData",
+            "type": "string",
             "description": "Confirmação de senha do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "biography",
             "in": "formData",
+            "type": "string",
             "description": "Biografia do usuário",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "required": false
           },
           {
             "name": "profilePhoto",
             "in": "formData",
+            "type": "file",
             "description": "Foto de perfil do usuário",
-            "required": false,
-            "schema": {
-              "type": "file"
-            }
+            "required": false
           }
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string",
+                  "example": "12220030040"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Wellington"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "welll@teste.com"
+                },
+                "profilePhoto": {
+                  "type": "string",
+                  "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                },
+                "biography": {
+                  "type": "string",
+                  "example": "Biografia"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         }
       },
@@ -203,102 +158,59 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string",
+                  "example": "12220030040"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Wellington"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "welll@teste.com"
+                },
+                "profilePhoto": {
+                  "type": "string",
+                  "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                },
+                "biography": {
+                  "type": "string",
+                  "example": "Biografia"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/users/{id}": {
@@ -313,110 +225,65 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "string",
             "description": "ID do usuário"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string",
+                  "example": "12220030040"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Wellington"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "welll@teste.com"
+                },
+                "profilePhoto": {
+                  "type": "string",
+                  "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
+                },
+                "biography": {
+                  "type": "string",
+                  "example": "Biografia"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2024-05-01T19:49:04.025Z"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cpf": {
-                      "type": "string",
-                      "example": "12220030040"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Wellington"
-                    },
-                    "email": {
-                      "type": "string",
-                      "example": "welll@teste.com"
-                    },
-                    "profilePhoto": {
-                      "type": "string",
-                      "example": "80fab12a-c440-4622-9231-972f1831f1c4.teste.png"
-                    },
-                    "biography": {
-                      "type": "string",
-                      "example": "Biografia"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "c8a52a75-2599-4bc2-b700-83c80af968f3"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2024-05-01T19:49:04.025Z"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -429,107 +296,78 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "name",
             "in": "formData",
+            "type": "string",
             "description": "Nome do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "email",
             "in": "formData",
+            "type": "string",
             "description": "Endereço de e-mail do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "password",
             "in": "formData",
+            "type": "string",
             "description": "Senha do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "confirmPassword",
             "in": "formData",
+            "type": "string",
             "description": "Confirmação de senha do usuário",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "required": true
           },
           {
             "name": "biography",
             "in": "formData",
+            "type": "string",
             "description": "Biografia do usuário",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
+            "required": false
           },
           {
             "name": "profilePhoto",
             "in": "formData",
+            "type": "file",
             "description": "Foto de perfil do usuário",
-            "required": false,
-            "schema": {
-              "type": "file"
-            }
+            "required": false
           }
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "User updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "User updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "User updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -542,54 +380,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "string",
             "description": "ID do usuário"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "User deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "User deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "User deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/login/": {
@@ -608,15 +429,15 @@
               "properties": {
                 "email": {
                   "type": "string",
-                  "example": "email@gmail.com"
+                  "example": "email@teste.com"
                 },
                 "cpf": {
                   "type": "string",
-                  "example": "12250060030"
+                  "example": "12250060040"
                 },
                 "password": {
                   "type": "string",
-                  "example": "password"
+                  "example": "123123@Ssr"
                 }
               }
             }
@@ -624,79 +445,40 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cC"
+                },
+                "user": {
                   "type": "object",
                   "properties": {
-                    "token": {
+                    "cpf": {
                       "type": "string",
-                      "example": "eyJhbGciOiJIUzI1NiIsInR5cC"
+                      "example": "12250060040"
                     },
-                    "user": {
-                      "type": "object",
-                      "properties": {
-                        "cpf": {
-                          "type": "string",
-                          "example": "12250060030"
-                        },
-                        "userId": {
-                          "type": "string",
-                          "example": "2a41a504-1f97-4a96-814d-244033089610"
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "Usuario"
-                        },
-                        "email": {
-                          "type": "string",
-                          "example": "email@gmail.com"
-                        }
-                      }
+                    "userId": {
+                      "type": "string",
+                      "example": "a606d75b-2cc4-451a-85ed-9a31fe5b8bd4"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "userName"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "email@teste.com"
                     }
-                  },
-                  "xml": {
-                    "name": "main"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string",
-                      "example": "eyJhbGciOiJIUzI1NiIsInR5cC"
-                    },
-                    "user": {
-                      "type": "object",
-                      "properties": {
-                        "cpf": {
-                          "type": "string",
-                          "example": "12250060030"
-                        },
-                        "userId": {
-                          "type": "string",
-                          "example": "2a41a504-1f97-4a96-814d-244033089610"
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "Usuario"
-                        },
-                        "email": {
-                          "type": "string",
-                          "example": "email@gmail.com"
-                        }
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
         }
       }
@@ -712,44 +494,24 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Logout sucessfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Logout sucessfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Logout sucessfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
         }
       }
@@ -765,9 +527,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -785,45 +545,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "attributeName": {
-                      "type": "string",
-                      "example": "NovoAttribute"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 7
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "attributeName": {
+                  "type": "string",
+                  "example": "NovoAttribute"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 7
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "attributeName": {
-                      "type": "string",
-                      "example": "NovoAttribute"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 7
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -842,60 +580,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 1
-                      },
-                      "attributeName": {
-                        "type": "string",
-                        "example": "Intelligence"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 1
                   },
-                  "xml": {
-                    "name": "main"
+                  "attributeName": {
+                    "type": "string",
+                    "example": "Intelligence"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 1
-                      },
-                      "attributeName": {
-                        "type": "string",
-                        "example": "Intelligence"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/attribute/{id}": {
@@ -910,62 +626,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Attribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 7
-                    },
-                    "attributeName": {
-                      "type": "string",
-                      "example": "attributeName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 7
+                },
+                "attributeName": {
+                  "type": "string",
+                  "example": "attributeName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 7
-                    },
-                    "attributeName": {
-                      "type": "string",
-                      "example": "attributeName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -978,17 +673,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Attribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1006,39 +697,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Attribute updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Attribute updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Attribute updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1051,54 +729,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Attribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Attribute deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Attribute deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Attribute deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/superpower/": {
@@ -1112,9 +773,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1132,45 +791,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "powerName": {
-                      "type": "string",
-                      "example": "NovoPowerName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 168
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "powerName": {
+                  "type": "string",
+                  "example": "NovoPowerName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 168
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "powerName": {
-                      "type": "string",
-                      "example": "NovoPowerName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 168
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -1189,60 +826,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 168
-                      },
-                      "powerName": {
-                        "type": "string",
-                        "example": "NovoPowerName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 168
                   },
-                  "xml": {
-                    "name": "main"
+                  "powerName": {
+                    "type": "string",
+                    "example": "NovoPowerName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 168
-                      },
-                      "powerName": {
-                        "type": "string",
-                        "example": "NovoPowerName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/superpower/{id}": {
@@ -1257,62 +872,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superpower"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 168
-                    },
-                    "powerName": {
-                      "type": "string",
-                      "example": "NovoPowerName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 168
+                },
+                "powerName": {
+                  "type": "string",
+                  "example": "NovoPowerName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 168
-                    },
-                    "powerName": {
-                      "type": "string",
-                      "example": "NovoPowerName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1325,17 +919,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superpower"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1353,39 +943,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superpower updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Superpower updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superpower updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1398,54 +975,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superpower"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superpower deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Superpower deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superpower deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/alignment/": {
@@ -1459,9 +1019,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1479,45 +1037,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "alignment": {
-                      "type": "string",
-                      "example": "AlignmentName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 5
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alignment": {
+                  "type": "string",
+                  "example": "AlignmentName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 5
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "alignment": {
-                      "type": "string",
-                      "example": "AlignmentName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 5
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -1536,60 +1072,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 5
-                      },
-                      "alignment": {
-                        "type": "string",
-                        "example": "AlignmentName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 5
                   },
-                  "xml": {
-                    "name": "main"
+                  "alignment": {
+                    "type": "string",
+                    "example": "AlignmentName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 5
-                      },
-                      "alignment": {
-                        "type": "string",
-                        "example": "AlignmentName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/alignment/{id}": {
@@ -1604,62 +1118,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Alignment"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 5
-                    },
-                    "alignment": {
-                      "type": "string",
-                      "example": "AlignmentName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 5
+                },
+                "alignment": {
+                  "type": "string",
+                  "example": "AlignmentName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 5
-                    },
-                    "alignment": {
-                      "type": "string",
-                      "example": "AlignmentName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1672,17 +1165,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Alignment"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1700,39 +1189,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Alignment updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Alignment updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Alignment updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1745,54 +1221,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Alignment"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Alignment deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Alignment deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Alignment deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/gender/": {
@@ -1806,9 +1265,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -1826,45 +1283,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "gender": {
-                      "type": "string",
-                      "example": "GenderName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 4
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "gender": {
+                  "type": "string",
+                  "example": "GenderName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 4
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "gender": {
-                      "type": "string",
-                      "example": "GenderName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 4
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -1883,60 +1318,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 4
-                      },
-                      "gender": {
-                        "type": "string",
-                        "example": "GenderName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 4
                   },
-                  "xml": {
-                    "name": "main"
+                  "gender": {
+                    "type": "string",
+                    "example": "GenderName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 4
-                      },
-                      "gender": {
-                        "type": "string",
-                        "example": "GenderName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/gender/{id}": {
@@ -1951,62 +1364,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Gender"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 4
-                    },
-                    "gender": {
-                      "type": "string",
-                      "example": "GenderName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 4
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "GenderName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 4
-                    },
-                    "gender": {
-                      "type": "string",
-                      "example": "GenderName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2019,17 +1411,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Gender"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2047,39 +1435,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Gender updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Gender updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Gender updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2092,54 +1467,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Gender"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Gender deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Gender deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Gender deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/colour/": {
@@ -2153,9 +1511,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2173,45 +1529,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "colour": {
-                      "type": "string",
-                      "example": "ColourName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 36
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colour": {
+                  "type": "string",
+                  "example": "ColourName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 36
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "colour": {
-                      "type": "string",
-                      "example": "ColourName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 36
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -2230,60 +1564,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 36
-                      },
-                      "colour": {
-                        "type": "string",
-                        "example": "ColourName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 36
                   },
-                  "xml": {
-                    "name": "main"
+                  "colour": {
+                    "type": "string",
+                    "example": "ColourName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 36
-                      },
-                      "colour": {
-                        "type": "string",
-                        "example": "ColourName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/colour/{id}": {
@@ -2298,62 +1610,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Colour"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 36
-                    },
-                    "colour": {
-                      "type": "string",
-                      "example": "ColourName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 36
+                },
+                "colour": {
+                  "type": "string",
+                  "example": "ColourName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 36
-                    },
-                    "colour": {
-                      "type": "string",
-                      "example": "ColourName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2366,17 +1657,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Colour"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2394,39 +1681,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Colour updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Colour updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Colour updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2439,54 +1713,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Colour"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Colour deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Colour deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Colour deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/race/": {
@@ -2500,9 +1757,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2520,45 +1775,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "race": {
-                      "type": "string",
-                      "example": "RaceName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 62
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "race": {
+                  "type": "string",
+                  "example": "RaceName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 62
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "race": {
-                      "type": "string",
-                      "example": "RaceName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 62
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -2577,60 +1810,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 62
-                      },
-                      "race": {
-                        "type": "string",
-                        "example": "RaceName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 62
                   },
-                  "xml": {
-                    "name": "main"
+                  "race": {
+                    "type": "string",
+                    "example": "RaceName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 62
-                      },
-                      "race": {
-                        "type": "string",
-                        "example": "RaceName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/race/{id}": {
@@ -2645,62 +1856,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Race"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 62
-                    },
-                    "race": {
-                      "type": "string",
-                      "example": "RaceName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 62
+                },
+                "race": {
+                  "type": "string",
+                  "example": "RaceName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 62
-                    },
-                    "race": {
-                      "type": "string",
-                      "example": "RaceName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2713,17 +1903,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Race"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2741,39 +1927,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Race updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Race updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Race updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2786,54 +1959,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Race"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Race deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Race deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Race deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/publisher/": {
@@ -2847,9 +2003,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -2867,45 +2021,23 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "publisher": {
-                      "type": "string",
-                      "example": "PublisherName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 26
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "publisher": {
+                  "type": "string",
+                  "example": "PublisherName"
+                },
+                "id": {
+                  "type": "number",
+                  "example": 26
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "publisher": {
-                      "type": "string",
-                      "example": "PublisherName"
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 26
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -2924,60 +2056,38 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 62
-                      },
-                      "publisher": {
-                        "type": "string",
-                        "example": "PublisherName"
-                      }
-                    }
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 62
                   },
-                  "xml": {
-                    "name": "main"
+                  "publisher": {
+                    "type": "string",
+                    "example": "PublisherName"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 62
-                      },
-                      "publisher": {
-                        "type": "string",
-                        "example": "PublisherName"
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/publisher/{id}": {
@@ -2992,62 +2102,41 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Publisher"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 26
-                    },
-                    "publisher": {
-                      "type": "string",
-                      "example": "PublisherName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 26
+                },
+                "publisher": {
+                  "type": "string",
+                  "example": "PublisherName"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 26
-                    },
-                    "publisher": {
-                      "type": "string",
-                      "example": "PublisherName"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3060,17 +2149,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Publisher"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -3088,39 +2173,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Publisher updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Publisher updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Publisher updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3133,54 +2205,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Publisher"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Publisher deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Publisher deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Publisher deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/hero-attribute/": {
@@ -3194,9 +2249,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -3222,121 +2275,61 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "attributeValue": {
+                  "type": "number",
+                  "example": 30
+                },
+                "superhero": {
                   "type": "object",
                   "properties": {
-                    "attributeValue": {
-                      "type": "number",
-                      "example": 30
-                    },
-                    "superhero": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "superheroName": {
-                          "type": "string",
-                          "example": "3-D Man"
-                        },
-                        "fullName": {
-                          "type": "string",
-                          "example": "Charles Chandler"
-                        },
-                        "heightCm": {
-                          "type": "number",
-                          "example": 188
-                        },
-                        "weightKg": {
-                          "type": "number",
-                          "example": 90
-                        }
-                      }
-                    },
-                    "attribute": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "attributeName": {
-                          "type": "string",
-                          "example": "Intelligence"
-                        }
-                      }
-                    },
                     "id": {
                       "type": "number",
-                      "example": 3739
+                      "example": 1
+                    },
+                    "superheroName": {
+                      "type": "string",
+                      "example": "3-D Man"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "Charles Chandler"
+                    },
+                    "heightCm": {
+                      "type": "number",
+                      "example": 188
+                    },
+                    "weightKg": {
+                      "type": "number",
+                      "example": 90
                     }
-                  },
-                  "xml": {
-                    "name": "main"
                   }
+                },
+                "attribute": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "attributeName": {
+                      "type": "string",
+                      "example": "Intelligence"
+                    }
+                  }
+                },
+                "id": {
+                  "type": "number",
+                  "example": 3739
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "attributeValue": {
-                      "type": "number",
-                      "example": 30
-                    },
-                    "superhero": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "superheroName": {
-                          "type": "string",
-                          "example": "3-D Man"
-                        },
-                        "fullName": {
-                          "type": "string",
-                          "example": "Charles Chandler"
-                        },
-                        "heightCm": {
-                          "type": "number",
-                          "example": 188
-                        },
-                        "weightKg": {
-                          "type": "number",
-                          "example": 90
-                        }
-                      }
-                    },
-                    "attribute": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "attributeName": {
-                          "type": "string",
-                          "example": "Intelligence"
-                        }
-                      }
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 3739
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -3355,136 +2348,76 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "example": 3739
+                  },
+                  "attributeValue": {
+                    "type": "number",
+                    "example": 30
+                  },
+                  "superhero": {
                     "type": "object",
                     "properties": {
                       "id": {
                         "type": "number",
-                        "example": 3739
+                        "example": 1
                       },
-                      "attributeValue": {
+                      "superheroName": {
+                        "type": "string",
+                        "example": "3-D Man"
+                      },
+                      "fullName": {
+                        "type": "string",
+                        "example": "Charles Chandler"
+                      },
+                      "heightCm": {
                         "type": "number",
-                        "example": 30
+                        "example": 188
                       },
-                      "superhero": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "superheroName": {
-                            "type": "string",
-                            "example": "3-D Man"
-                          },
-                          "fullName": {
-                            "type": "string",
-                            "example": "Charles Chandler"
-                          },
-                          "heightCm": {
-                            "type": "number",
-                            "example": 188
-                          },
-                          "weightKg": {
-                            "type": "number",
-                            "example": 90
-                          }
-                        }
-                      },
-                      "attribute": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "attributeName": {
-                            "type": "string",
-                            "example": "Intelligence"
-                          }
-                        }
+                      "weightKg": {
+                        "type": "number",
+                        "example": 90
                       }
                     }
                   },
-                  "xml": {
-                    "name": "main"
+                  "attribute": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "attributeName": {
+                        "type": "string",
+                        "example": "Intelligence"
+                      }
+                    }
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number",
-                        "example": 3739
-                      },
-                      "attributeValue": {
-                        "type": "number",
-                        "example": 30
-                      },
-                      "superhero": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "superheroName": {
-                            "type": "string",
-                            "example": "3-D Man"
-                          },
-                          "fullName": {
-                            "type": "string",
-                            "example": "Charles Chandler"
-                          },
-                          "heightCm": {
-                            "type": "number",
-                            "example": 188
-                          },
-                          "weightKg": {
-                            "type": "number",
-                            "example": 90
-                          }
-                        }
-                      },
-                      "attribute": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "attributeName": {
-                            "type": "string",
-                            "example": "Intelligence"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/hero-attribute/{id}": {
@@ -3499,138 +2432,79 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do HeroAttribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 3739
+                },
+                "attributeValue": {
+                  "type": "number",
+                  "example": 30
+                },
+                "superhero": {
                   "type": "object",
                   "properties": {
                     "id": {
                       "type": "number",
-                      "example": 3739
+                      "example": 1
                     },
-                    "attributeValue": {
+                    "superheroName": {
+                      "type": "string",
+                      "example": "3-D Man"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "Charles Chandler"
+                    },
+                    "heightCm": {
                       "type": "number",
-                      "example": 30
+                      "example": 188
                     },
-                    "superhero": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "superheroName": {
-                          "type": "string",
-                          "example": "3-D Man"
-                        },
-                        "fullName": {
-                          "type": "string",
-                          "example": "Charles Chandler"
-                        },
-                        "heightCm": {
-                          "type": "number",
-                          "example": 188
-                        },
-                        "weightKg": {
-                          "type": "number",
-                          "example": 90
-                        }
-                      }
-                    },
-                    "attribute": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "attributeName": {
-                          "type": "string",
-                          "example": "Intelligence"
-                        }
-                      }
+                    "weightKg": {
+                      "type": "number",
+                      "example": 90
                     }
-                  },
-                  "xml": {
-                    "name": "main"
+                  }
+                },
+                "attribute": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "attributeName": {
+                      "type": "string",
+                      "example": "Intelligence"
+                    }
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 3739
-                    },
-                    "attributeValue": {
-                      "type": "number",
-                      "example": 30
-                    },
-                    "superhero": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "superheroName": {
-                          "type": "string",
-                          "example": "3-D Man"
-                        },
-                        "fullName": {
-                          "type": "string",
-                          "example": "Charles Chandler"
-                        },
-                        "heightCm": {
-                          "type": "number",
-                          "example": 188
-                        },
-                        "weightKg": {
-                          "type": "number",
-                          "example": 90
-                        }
-                      }
-                    },
-                    "attribute": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "attributeName": {
-                          "type": "string",
-                          "example": "Intelligence"
-                        }
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3643,17 +2517,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do HeroAttribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -3679,39 +2549,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "HeroAttribute updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "HeroAttribute updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "HeroAttribute updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3724,54 +2581,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do HeroAttribute"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "HeroAttribute deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "HeroAttribute deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "HeroAttribute deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/superhero/": {
@@ -3785,9 +2625,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -3857,283 +2695,142 @@
         ],
         "responses": {
           "201": {
-            "description": "Criado",
-            "content": {
-              "application/json": {
-                "schema": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "superheroName": {
+                  "type": "string",
+                  "example": "NovoHeroName"
+                },
+                "fullName": {
+                  "type": "string",
+                  "example": "NovoHeroFullName"
+                },
+                "heightCm": {
+                  "type": "number",
+                  "example": 100
+                },
+                "weightKg": {
+                  "type": "number",
+                  "example": 50
+                },
+                "gender": {
                   "type": "object",
                   "properties": {
-                    "superheroName": {
-                      "type": "string",
-                      "example": "NovoHeroName"
-                    },
-                    "fullName": {
-                      "type": "string",
-                      "example": "NovoHeroFullName"
-                    },
-                    "heightCm": {
-                      "type": "number",
-                      "example": 100
-                    },
-                    "weightKg": {
-                      "type": "number",
-                      "example": 50
-                    },
-                    "gender": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "gender": {
-                          "type": "string",
-                          "example": "Male"
-                        }
-                      }
-                    },
-                    "eyeColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "No Colour"
-                        }
-                      }
-                    },
-                    "hairColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 2
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Amber"
-                        }
-                      }
-                    },
-                    "skinColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 3
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Auburn"
-                        }
-                      }
-                    },
-                    "race": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "race": {
-                          "type": "string",
-                          "example": "-"
-                        }
-                      }
-                    },
-                    "publisher": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "publisher": {
-                          "type": "string",
-                          "example": ""
-                        }
-                      }
-                    },
-                    "alignment": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "alignment": {
-                          "type": "string",
-                          "example": "Good"
-                        }
-                      }
-                    },
-                    "superpowers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
-                          },
-                          "powerName": {
-                            "type": "string",
-                            "example": "Accelerated Healing"
-                          }
-                        }
-                      }
-                    },
                     "id": {
                       "type": "number",
-                      "example": 10
+                      "example": 1
+                    },
+                    "gender": {
+                      "type": "string",
+                      "example": "Male"
                     }
-                  },
-                  "xml": {
-                    "name": "main"
                   }
+                },
+                "eyeColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "colour": {
+                      "type": "string",
+                      "example": "No Colour"
+                    }
+                  }
+                },
+                "hairColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 2
+                    },
+                    "colour": {
+                      "type": "string",
+                      "example": "Amber"
+                    }
+                  }
+                },
+                "skinColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 3
+                    },
+                    "colour": {
+                      "type": "string",
+                      "example": "Auburn"
+                    }
+                  }
+                },
+                "race": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "race": {
+                      "type": "string",
+                      "example": "-"
+                    }
+                  }
+                },
+                "publisher": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "publisher": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                },
+                "alignment": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "alignment": {
+                      "type": "string",
+                      "example": "Good"
+                    }
+                  }
+                },
+                "superpowers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 2
+                      },
+                      "powerName": {
+                        "type": "string",
+                        "example": "Accelerated Healing"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "number",
+                  "example": 10
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "superheroName": {
-                      "type": "string",
-                      "example": "NovoHeroName"
-                    },
-                    "fullName": {
-                      "type": "string",
-                      "example": "NovoHeroFullName"
-                    },
-                    "heightCm": {
-                      "type": "number",
-                      "example": 100
-                    },
-                    "weightKg": {
-                      "type": "number",
-                      "example": 50
-                    },
-                    "gender": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "gender": {
-                          "type": "string",
-                          "example": "Male"
-                        }
-                      }
-                    },
-                    "eyeColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "No Colour"
-                        }
-                      }
-                    },
-                    "hairColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 2
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Amber"
-                        }
-                      }
-                    },
-                    "skinColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 3
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Auburn"
-                        }
-                      }
-                    },
-                    "race": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "race": {
-                          "type": "string",
-                          "example": "-"
-                        }
-                      }
-                    },
-                    "publisher": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "publisher": {
-                          "type": "string",
-                          "example": ""
-                        }
-                      }
-                    },
-                    "alignment": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "alignment": {
-                          "type": "string",
-                          "example": "Good"
-                        }
-                      }
-                    },
-                    "superpowers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
-                          },
-                          "powerName": {
-                            "type": "string",
-                            "example": "Accelerated Healing"
-                          }
-                        }
-                      }
-                    },
-                    "id": {
-                      "type": "number",
-                      "example": 10
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "Created"
           }
         },
         "security": [
@@ -4152,462 +2849,259 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "page",
             "in": "path",
+            "type": "number",
             "description": "Número da página que deseja acessar",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "size",
             "in": "path",
+            "type": "number",
             "description": "Quantidade de dados que deseja trazer",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "attributeValue",
             "in": "path",
+            "type": "number",
             "description": "Opção de order para attributeValue - DESC ou ASC",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "powerId",
             "in": "path",
+            "type": "number",
             "description": "Opção de order para powerId - DESC ou ASC",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "attributeName",
             "in": "path",
+            "type": "number",
             "description": "Opção de filtro para attributeName",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "alignment",
             "in": "path",
+            "type": "number",
             "description": "Opção de filtro para alignment",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "powerName",
             "in": "path",
+            "type": "number",
             "description": "Opção de filtro para powerName",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           },
           {
             "name": "publisher",
             "in": "path",
+            "type": "number",
             "description": "Opção de filtro para publisher",
-            "required": false,
-            "schema": {
-              "type": "number"
-            }
+            "required": false
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "currentPage": {
-                      "type": "number",
-                      "example": 1
-                    },
-                    "totalItems": {
-                      "type": "number",
-                      "example": 750
-                    },
-                    "totalPages": {
-                      "type": "number",
-                      "example": 750
-                    },
-                    "content": {
-                      "type": "array",
-                      "items": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "currentPage": {
+                  "type": "number",
+                  "example": 1
+                },
+                "totalItems": {
+                  "type": "number",
+                  "example": 750
+                },
+                "totalPages": {
+                  "type": "number",
+                  "example": 750
+                },
+                "content": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "superheroName": {
+                        "type": "string",
+                        "example": "3-D Man"
+                      },
+                      "fullName": {
+                        "type": "string",
+                        "example": "Charles Chandler"
+                      },
+                      "heightCm": {
+                        "type": "number",
+                        "example": 188
+                      },
+                      "weightKg": {
+                        "type": "number",
+                        "example": 90
+                      },
+                      "gender": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "number",
                             "example": 1
                           },
-                          "superheroName": {
-                            "type": "string",
-                            "example": "3-D Man"
-                          },
-                          "fullName": {
-                            "type": "string",
-                            "example": "Charles Chandler"
-                          },
-                          "heightCm": {
-                            "type": "number",
-                            "example": 188
-                          },
-                          "weightKg": {
-                            "type": "number",
-                            "example": 90
-                          },
                           "gender": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "gender": {
-                                "type": "string",
-                                "example": "Male"
-                              }
-                            }
+                            "type": "string",
+                            "example": "Male"
+                          }
+                        }
+                      },
+                      "eyeColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 9
                           },
-                          "eyeColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 9
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "Brown"
-                              }
-                            }
+                          "colour": {
+                            "type": "string",
+                            "example": "Brown"
+                          }
+                        }
+                      },
+                      "hairColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 13
                           },
-                          "hairColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 13
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "Grey"
-                              }
-                            }
+                          "colour": {
+                            "type": "string",
+                            "example": "Grey"
+                          }
+                        }
+                      },
+                      "skinColour": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
                           },
-                          "skinColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "No Colour"
-                              }
-                            }
+                          "colour": {
+                            "type": "string",
+                            "example": "No Colour"
+                          }
+                        }
+                      },
+                      "race": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
                           },
                           "race": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "race": {
-                                "type": "string",
-                                "example": "-"
-                              }
-                            }
+                            "type": "string",
+                            "example": "-"
+                          }
+                        }
+                      },
+                      "publisher": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 13
                           },
                           "publisher": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 13
-                              },
-                              "publisher": {
-                                "type": "string",
-                                "example": "Marvel Comics"
-                              }
-                            }
+                            "type": "string",
+                            "example": "Marvel Comics"
+                          }
+                        }
+                      },
+                      "alignment": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
                           },
                           "alignment": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "alignment": {
-                                "type": "string",
-                                "example": "Good"
-                              }
-                            }
-                          },
-                          "heroAttributes": {
-                            "type": "array",
-                            "items": {
+                            "type": "string",
+                            "example": "Good"
+                          }
+                        }
+                      },
+                      "heroAttributes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 3116
+                            },
+                            "attributeValue": {
+                              "type": "number",
+                              "example": 45
+                            },
+                            "attribute": {
                               "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "number",
-                                  "example": 3116
+                                  "example": 6
                                 },
-                                "attributeValue": {
-                                  "type": "number",
-                                  "example": 45
-                                },
-                                "attribute": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "number",
-                                      "example": 6
-                                    },
-                                    "attributeName": {
-                                      "type": "string",
-                                      "example": "Combat"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "superpowers": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number",
-                                  "example": 31
-                                },
-                                "powerName": {
+                                "attributeName": {
                                   "type": "string",
-                                  "example": "Super Speed"
+                                  "example": "Combat"
                                 }
                               }
                             }
                           }
                         }
+                      },
+                      "superpowers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number",
+                              "example": 31
+                            },
+                            "powerName": {
+                              "type": "string",
+                              "example": "Super Speed"
+                            }
+                          }
+                        }
                       }
                     }
-                  },
-                  "xml": {
-                    "name": "main"
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "currentPage": {
-                      "type": "number",
-                      "example": 1
-                    },
-                    "totalItems": {
-                      "type": "number",
-                      "example": 750
-                    },
-                    "totalPages": {
-                      "type": "number",
-                      "example": 750
-                    },
-                    "content": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "superheroName": {
-                            "type": "string",
-                            "example": "3-D Man"
-                          },
-                          "fullName": {
-                            "type": "string",
-                            "example": "Charles Chandler"
-                          },
-                          "heightCm": {
-                            "type": "number",
-                            "example": 188
-                          },
-                          "weightKg": {
-                            "type": "number",
-                            "example": 90
-                          },
-                          "gender": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "gender": {
-                                "type": "string",
-                                "example": "Male"
-                              }
-                            }
-                          },
-                          "eyeColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 9
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "Brown"
-                              }
-                            }
-                          },
-                          "hairColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 13
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "Grey"
-                              }
-                            }
-                          },
-                          "skinColour": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "colour": {
-                                "type": "string",
-                                "example": "No Colour"
-                              }
-                            }
-                          },
-                          "race": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "race": {
-                                "type": "string",
-                                "example": "-"
-                              }
-                            }
-                          },
-                          "publisher": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 13
-                              },
-                              "publisher": {
-                                "type": "string",
-                                "example": "Marvel Comics"
-                              }
-                            }
-                          },
-                          "alignment": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "number",
-                                "example": 1
-                              },
-                              "alignment": {
-                                "type": "string",
-                                "example": "Good"
-                              }
-                            }
-                          },
-                          "heroAttributes": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number",
-                                  "example": 3116
-                                },
-                                "attributeValue": {
-                                  "type": "number",
-                                  "example": 45
-                                },
-                                "attribute": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "number",
-                                      "example": 6
-                                    },
-                                    "attributeName": {
-                                      "type": "string",
-                                      "example": "Combat"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "superpowers": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "number",
-                                  "example": 31
-                                },
-                                "powerName": {
-                                  "type": "string",
-                                  "example": "Super Speed"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/superhero/{id}": {
@@ -4622,332 +3116,176 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superhero"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 10
+                },
+                "superheroName": {
+                  "type": "string",
+                  "example": "NovoHeroName"
+                },
+                "fullName": {
+                  "type": "string",
+                  "example": "NovoHeroFullName"
+                },
+                "heightCm": {
+                  "type": "number",
+                  "example": 100
+                },
+                "weightKg": {
+                  "type": "number",
+                  "example": 50
+                },
+                "gender": {
                   "type": "object",
                   "properties": {
                     "id": {
                       "type": "number",
-                      "example": 10
-                    },
-                    "superheroName": {
-                      "type": "string",
-                      "example": "NovoHeroName"
-                    },
-                    "fullName": {
-                      "type": "string",
-                      "example": "NovoHeroFullName"
-                    },
-                    "heightCm": {
-                      "type": "number",
-                      "example": 100
-                    },
-                    "weightKg": {
-                      "type": "number",
-                      "example": 50
+                      "example": 1
                     },
                     "gender": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "gender": {
-                          "type": "string",
-                          "example": "Male"
-                        }
-                      }
+                      "type": "string",
+                      "example": "Male"
+                    }
+                  }
+                },
+                "eyeColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
                     },
-                    "eyeColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "No Colour"
-                        }
-                      }
+                    "colour": {
+                      "type": "string",
+                      "example": "No Colour"
+                    }
+                  }
+                },
+                "hairColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 2
                     },
-                    "hairColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 2
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Amber"
-                        }
-                      }
+                    "colour": {
+                      "type": "string",
+                      "example": "Amber"
+                    }
+                  }
+                },
+                "skinColour": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 3
                     },
-                    "skinColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 3
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Auburn"
-                        }
-                      }
+                    "colour": {
+                      "type": "string",
+                      "example": "Auburn"
+                    }
+                  }
+                },
+                "race": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
                     },
                     "race": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "race": {
-                          "type": "string",
-                          "example": "-"
-                        }
-                      }
+                      "type": "string",
+                      "example": "-"
+                    }
+                  }
+                },
+                "publisher": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
                     },
                     "publisher": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "publisher": {
-                          "type": "string",
-                          "example": ""
-                        }
-                      }
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                },
+                "alignment": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 1
                     },
                     "alignment": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "alignment": {
-                          "type": "string",
-                          "example": "Good"
-                        }
-                      }
-                    },
-                    "heroAttributes": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 3741
-                          },
-                          "attributeValue": {
-                            "type": "number",
-                            "example": 50
-                          }
-                        }
-                      }
-                    },
-                    "superpowers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
-                          },
-                          "powerName": {
-                            "type": "string",
-                            "example": "Accelerated Healing"
-                          }
-                        }
+                      "type": "string",
+                      "example": "Good"
+                    }
+                  }
+                },
+                "heroAttributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 3741
+                      },
+                      "attributeValue": {
+                        "type": "number",
+                        "example": 50
                       }
                     }
-                  },
-                  "xml": {
-                    "name": "main"
+                  }
+                },
+                "superpowers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 2
+                      },
+                      "powerName": {
+                        "type": "string",
+                        "example": "Accelerated Healing"
+                      }
+                    }
                   }
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number",
-                      "example": 10
-                    },
-                    "superheroName": {
-                      "type": "string",
-                      "example": "NovoHeroName"
-                    },
-                    "fullName": {
-                      "type": "string",
-                      "example": "NovoHeroFullName"
-                    },
-                    "heightCm": {
-                      "type": "number",
-                      "example": 100
-                    },
-                    "weightKg": {
-                      "type": "number",
-                      "example": 50
-                    },
-                    "gender": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "gender": {
-                          "type": "string",
-                          "example": "Male"
-                        }
-                      }
-                    },
-                    "eyeColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "No Colour"
-                        }
-                      }
-                    },
-                    "hairColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 2
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Amber"
-                        }
-                      }
-                    },
-                    "skinColour": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 3
-                        },
-                        "colour": {
-                          "type": "string",
-                          "example": "Auburn"
-                        }
-                      }
-                    },
-                    "race": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "race": {
-                          "type": "string",
-                          "example": "-"
-                        }
-                      }
-                    },
-                    "publisher": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "publisher": {
-                          "type": "string",
-                          "example": ""
-                        }
-                      }
-                    },
-                    "alignment": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "alignment": {
-                          "type": "string",
-                          "example": "Good"
-                        }
-                      }
-                    },
-                    "heroAttributes": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 3741
-                          },
-                          "attributeValue": {
-                            "type": "number",
-                            "example": 50
-                          }
-                        }
-                      }
-                    },
-                    "superpowers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "number",
-                            "example": 2
-                          },
-                          "powerName": {
-                            "type": "string",
-                            "example": "Accelerated Healing"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4960,17 +3298,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superhero"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -5040,39 +3374,26 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superhero updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Superhero updated successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superhero updated successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -5085,54 +3406,37 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
+            "type": "number",
             "description": "ID do Superhero"
           },
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superhero deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Superhero deleted successfully"
                 }
               },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Superhero deleted successfully"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/superhero/battle": {
@@ -5146,9 +3450,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           },
           {
             "name": "body",
@@ -5170,47 +3472,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "example": [
-                    "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
-                    "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)"
-                  ],
-                  "items": {
-                    "type": "string"
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "example": [
+                "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
+                "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
+                "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)"
+              ],
+              "items": {
+                "type": "string"
               },
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "example": [
-                    "Vencedor no atributo Combat foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Durability foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Intelligence foi Yoda com o valor de 95 | (George Lucas)",
-                    "Vencedor no atributo Power foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Speed foi Birdman com o valor de 70 | (Hanna-Barbera)",
-                    "Vencedor no atributo Strength foi Birdman com o valor de 55 | (Hanna-Barbera)"
-                  ],
-                  "items": {
-                    "type": "string"
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
+              "xml": {
+                "name": "main"
               }
-            }
+            },
+            "description": "OK"
           }
         },
         "security": [
@@ -5218,16 +3497,6 @@
             "bearerAuth": []
           }
         ]
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "Authorization",
-        "description": "Digite Bearer + o token que você possui"
       }
     }
   }

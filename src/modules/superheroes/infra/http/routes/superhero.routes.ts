@@ -95,6 +95,7 @@ SuperheroRouter.get(
   /*  
     #swagger.tags = ['Superhero']
     #swagger.summary = 'Busca um Superhero pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -168,6 +169,7 @@ SuperheroRouter.get(
   /*  
     #swagger.tags = ['Superhero']
     #swagger.summary = 'Busca todos os Superheros'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['page'] = {
       in: 'path',
       type: 'number',
@@ -338,6 +340,7 @@ SuperheroRouter.put(
   /*  
     #swagger.tags = ['Superhero']
     #swagger.summary = 'Atualiza um Superhero existente'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',
@@ -383,6 +386,7 @@ SuperheroRouter.delete(
   /*  
     #swagger.tags = ['Superhero']
     #swagger.summary = 'Deleta um Superhero pelo ID'
+    #swagger.security = [{ "bearerAuth": [] }]
     #swagger.parameters['id'] = {
       in: 'path',
       type: 'number',

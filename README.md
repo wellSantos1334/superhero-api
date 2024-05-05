@@ -56,6 +56,10 @@ Rodar as seeds (popular o banco):
 ```
 npm run seed
 ```
+Para atualizar a documentação:
+```
+npm run swagger-autogen
+```
 Para executar o projeto:
 ```
 npm run dev

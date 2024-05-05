@@ -1,6 +1,6 @@
-import type { Config } from 'jest';
+import type { Config } from '@jest/types';
 
-const config: Config = {
+const config: Config.InitialOptions = {
   testEnvironment: 'node',
   coverageDirectory: 'coverage/unit',
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/__tests__/**'],

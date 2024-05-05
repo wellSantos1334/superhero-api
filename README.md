@@ -39,13 +39,11 @@ git clone https://github.com/wellSantos1334/superhero-api.git
 http://localhost:5555/api/docs/
 ```
 
-## Comandos para rodar o projeto localmente (Docker)
-Para rodar o projeto em docker, é necessário rodar o seguinte comando:
+## Comandos para rodar o projeto localmente
+Para criar as imagens do banco, é necessário rodar:
 ```
 docker compose up -d
 ```
-
-## Comandos para rodar o projeto local manualmente
 Instalar as dependências
 ```
 npm install

@@ -6,9 +6,14 @@ import { IUserRepository } from '../../../../../repositories/IUserRepository';
 import { CreateUserService } from '../../../../../services/CreateUserService';
 import { User } from '../../../../typeorm/entities/User';
 import { addAudit } from '../../../../../../../shared/infra/mongo/addAudit';
+import { addLog } from '../../../../../../../shared/infra/mongo/addLog';
 
 jest.mock('../../../../../../../shared/infra/mongo/addAudit', () => ({
   addAudit: jest.fn(),
+}));
+
+jest.mock('../../../../../../../shared/infra/mongo/addLog', () => ({
+  addLog: jest.fn(),
 }));
 
 describe('UserController', () => {
@@ -44,6 +49,7 @@ describe('UserController', () => {
     expect(userRepositoryMock.create).toHaveBeenCalledWith({
       ...data,
       profilePhoto: '',
+      active: true,
     });
 
     expect(addAudit).toHaveBeenCalledWith({
@@ -79,6 +85,11 @@ describe('UserController', () => {
     //TODO: Por algum motivo o rejects.toThrow não está funcionando, necessário verificar o motivo. Usar try catch como abaixo não é o ideal.
     try {
       await createUserService.execute(data, profilePhoto);
+
+      expect(addLog).toHaveBeenCalledWith({
+        log: 'Conflict',
+        message: 'User already exists',
+      });
     } catch (error) {
       expect((error as Error).message).toEqual('User already exists');
     }
@@ -110,6 +121,11 @@ describe('UserController', () => {
     //TODO: Por algum motivo o rejects.toThrow não está funcionando, necessário verificar o motivo. Usar try catch como abaixo não é o ideal.
     try {
       await createUserService.execute(data, profilePhoto);
+
+      expect(addLog).toHaveBeenCalledWith({
+        log: 'Conflict',
+        message: 'CPF already exists',
+      });
     } catch (error) {
       expect((error as Error).message).toEqual('CPF already exists');
     }

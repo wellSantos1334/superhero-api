@@ -38,6 +38,10 @@ git clone https://github.com/wellSantos1334/superhero-api.git
 ```
 http://localhost:5555/api/docs/
 ```
+## Link da API
+```
+http://localhost:5555/api
+```
 
 ## Comandos para rodar o projeto localmente
 Para criar as imagens do banco, é necessário rodar:

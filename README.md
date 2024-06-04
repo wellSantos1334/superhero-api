@@ -1,5 +1,5 @@
 # Superhero API
-Esse projeto tem por objetivo atender a demanda no qual foi a mim designada no processo seletivo para a Empresa Vila.
+Projeto capaz de efetuar um CRUD de Usuário, e também um CRUD completo de Super-heróis, onde é possível inserir atributos, superpoderes, etc.
 
 ## Versão
 Esse projeto utiliza NodeJS 20.12.0
